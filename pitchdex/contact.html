@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Early Access — Pitchdex</title>
+  <meta name="description" content="Join the Pitchdex waitlist. Get early access to the investor database and cold email platform built for fundraising founders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/logo.png" alt="Pitchdex logo" />
+          <span class="nav-logo-name">Pitchdex</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+          <a href="features.html">Features</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get Early Access</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="pill pill-orange">Early Access</span>
+      <h1>Start booking VC meetings<br>this week</h1>
+      <p>Early access spots are limited. Fill out the form — we'll reach out within 24 hours to get you set up.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div class="contact-info">
+          <h2>Let's get you funded</h2>
+          <p>Tell us a bit about your raise. We'll match you to the right plan and get your account set up — usually same-day.</p>
+
+          <div class="contact-points">
+            <div class="contact-point">
+              <div class="contact-point-icon">⚡</div>
+              <div class="contact-point-text">
+                <h4>Fast onboarding</h4>
+                <p>Most founders are sending their first sequence within 24 hours of signing up.</p>
+              </div>
+            </div>
+            <div class="contact-point">
+              <div class="contact-point-icon">🗂️</div>
+              <div class="contact-point-text">
+                <h4>Instant database access</h4>
+                <p>Search and filter 500+ VCs from day one. No waiting period, no approval queue.</p>
+              </div>
+            </div>
+            <div class="contact-point">
+              <div class="contact-point-icon">🛡️</div>
+              <div class="contact-point-text">
+                <h4>30-day guarantee</h4>
+                <p>Book a VC meeting in 30 days or we'll refund your first month. No questions asked.</p>
+              </div>
+            </div>
+            <div class="contact-point">
+              <div class="contact-point-icon">💬</div>
+              <div class="contact-point-text">
+                <h4>Founder support</h4>
+                <p>Not a support bot. Real humans who've fundraised before, on Slack or email.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social proof mini -->
+          <div style="margin-top: 40px; padding: 24px; background: var(--off-white); border-radius: 12px; border: 1px solid var(--neutral-light);">
+            <div style="font-size: 0.82rem; font-weight: 700; color: #8A8AB0; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 14px;">What founders are saying</div>
+            <div style="font-size: 0.9rem; color: var(--neutral-mid); line-height: 1.7; font-style: italic; margin-bottom: 14px;">
+              "Signed up on Monday. Had 4 VC replies by Thursday. This is what fundraising should feel like."
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--blue); color: white; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700;">TC</div>
+              <div>
+                <div style="font-size: 0.82rem; font-weight: 600; color: var(--neutral-dark);">Tyler C.</div>
+                <div style="font-size: 0.75rem; color: #8A8AB0;">B2B SaaS · Seed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-box">
+          <h3>Request early access</h3>
+          <p>We'll review your application and reach out within 24 hours.</p>
+
+          <form id="waitlist-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First name</label>
+                <input type="text" id="first-name" placeholder="Alex" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last name</label>
+                <input type="text" id="last-name" placeholder="Kim" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Work email</label>
+              <input type="email" id="email" placeholder="alex@yourstartup.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company name</label>
+              <input type="text" id="company" placeholder="Your Startup Inc." required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="stage">Fundraising stage</label>
+                <select id="stage">
+                  <option value="">Select stage...</option>
+                  <option>Pre-Seed</option>
+                  <option>Seed</option>
+                  <option>Series A</option>
+                  <option>Series B+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="raise-size">Target raise size</label>
+                <select id="raise-size">
+                  <option value="">Select amount...</option>
+                  <option>Under $500k</option>
+                  <option>$500k – $1M</option>
+                  <option>$1M – $3M</option>
+                  <option>$3M – $7M</option>
+                  <option>$7M – $15M</option>
+                  <option>$15M+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="sector">Sector</label>
+              <select id="sector">
+                <option value="">Select your sector...</option>
+                <option>SaaS / B2B Software</option>
+                <option>Fintech</option>
+                <option>AI / Machine Learning</option>
+                <option>HealthTech / BioTech</option>
+                <option>Consumer</option>
+                <option>Marketplace</option>
+                <option>Developer Tools</option>
+                <option>Climate / CleanTech</option>
+                <option>Deep Tech</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Anything else? (optional)</label>
+              <textarea id="message" placeholder="Tell us where you are in your raise, what's been your biggest challenge so far, or any questions you have..."></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary btn-lg">Request Early Access →</button>
+            </div>
+
+            <p style="font-size: 0.8rem; color: #8A8AB0; margin-top: 14px; text-align: center;">
+              We respond within 24 hours. No spam. No hard sell.
+            </p>
+          </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="form-success" style="display:none; text-align:center; padding: 40px 20px;">
+            <div style="font-size: 3rem; margin-bottom: 16px;">🎉</div>
+            <h3 style="margin-bottom: 10px;">You're on the list!</h3>
+            <p style="color: var(--neutral-mid); font-size: 0.95rem; line-height: 1.7;">We got your application. Expect a reply from us within 24 hours with your account details and a quick onboarding call invite.</p>
+            <a href="index.html" class="btn btn-secondary" style="margin-top: 24px;">Back to home</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section style="padding: 48px 0; background: var(--off-white); border-top: 1px solid var(--neutral-light);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: center;">
+        <div>
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">🔒</div>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--neutral-dark); margin-bottom: 4px;">Secure & Private</div>
+          <div style="font-size: 0.8rem; color: #8A8AB0;">Your outreach data is never shared with investors or third parties.</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">💳</div>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--neutral-dark); margin-bottom: 4px;">No Credit Card to Start</div>
+          <div style="font-size: 0.8rem; color: #8A8AB0;">We set you up manually for early access. No payment until you're ready.</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">🔁</div>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--neutral-dark); margin-bottom: 4px;">Cancel Anytime</div>
+          <div style="font-size: 0.8rem; color: #8A8AB0;">Month-to-month subscriptions. No contracts, no lock-ins.</div>
+        </div>
+        <div>
+          <div style="font-size: 1.8rem; margin-bottom: 8px;">⭐</div>
+          <div style="font-size: 0.85rem; font-weight: 600; color: var(--neutral-dark); margin-bottom: 4px;">30-Day Guarantee</div>
+          <div style="font-size: 0.8rem; color: #8A8AB0;">Book a VC meeting in 30 days or get your first month refunded.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Pitchdex" />
+            <span class="nav-logo-name">Pitchdex</span>
+          </a>
+          <p class="footer-tagline">The investor database and cold email platform built for founders actively raising their round.</p>
+          <div class="footer-social">
+            <a href="#" title="Twitter / X">𝕏</a>
+            <a href="#" title="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Get Early Access</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Pitchdex Inc. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms-and-conditions.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => { links.classList.toggle('open'); });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('waitlist-form').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+    }
+
+    @media (max-width: 768px) {
+      /* handled via inline media */
+    }
+  </script>
+
+  <style>
+    @media (max-width: 600px) {
+      section:nth-of-type(4) .container > div {
+        grid-template-columns: 1fr 1fr !important;
+      }
+    }
+    @media (max-width: 400px) {
+      section:nth-of-type(4) .container > div {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+</body>
+</html>

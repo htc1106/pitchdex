@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing — Pitchdex</title>
+  <meta name="description" content="One simple plan. $25/month or $150/year. Everything you need to book VC meetings during your raise." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* Single-plan pricing layout */
+    .single-plan-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: var(--section-v) 0 40px;
+    }
+    .single-plan-card {
+      background: var(--white);
+      border: 2px solid var(--blue);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(43,111,242,0.12);
+      padding: 48px 52px;
+      max-width: 560px;
+      width: 100%;
+      text-align: center;
+    }
+    .plan-badge {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 50px;
+      padding: 5px 16px;
+      margin-bottom: 20px;
+    }
+    .plan-name {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--neutral-dark);
+      margin-bottom: 8px;
+    }
+    .plan-tagline {
+      font-size: 1rem;
+      color: var(--neutral-mid);
+      margin-bottom: 32px;
+    }
+    .plan-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .plan-toggle-btn {
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .plan-toggle-btn.active {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+    .plan-toggle-btn:not(.active) {
+      background: var(--off-white);
+      color: var(--neutral-mid);
+      border-color: var(--neutral-light);
+    }
+    .plan-toggle-btn:not(.active):hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+    .plan-price-display {
+      margin-bottom: 8px;
+    }
+    .plan-price-display .price-main {
+      font-size: 3.6rem;
+      font-weight: 800;
+      color: var(--neutral-dark);
+      line-height: 1;
+    }
+    .plan-price-display .price-main sup {
+      font-size: 1.6rem;
+      vertical-align: top;
+      margin-top: 10px;
+      display: inline-block;
+    }
+    .plan-price-display .price-period {
+      font-size: 1rem;
+      color: var(--neutral-mid);
+      font-weight: 500;
+    }
+    .plan-price-note {
+      font-size: 0.88rem;
+      color: var(--neutral-mid);
+      margin-bottom: 32px;
+      min-height: 22px;
+    }
+    .plan-price-note strong {
+      color: #22C55E;
+    }
+    .plan-divider {
+      height: 1px;
+      background: var(--neutral-light);
+      margin: 28px 0;
+    }
+    .plan-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 36px;
+      text-align: left;
+    }
+    .plan-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.97rem;
+      color: var(--neutral-mid);
+      padding: 7px 0;
+    }
+    .plan-features li .check {
+      color: var(--blue);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .plan-cta {
+      width: 100%;
+      justify-content: center;
+      font-size: 1.05rem;
+      padding: 16px 28px;
+    }
+    .plan-guarantee {
+      font-size: 0.83rem;
+      color: var(--neutral-mid);
+      margin-top: 16px;
+    }
+
+    /* Savings callout */
+    .savings-banner {
+      background: #F0FDF4;
+      border: 1px solid #86EFAC;
+      border-radius: 10px;
+      padding: 14px 20px;
+      text-align: center;
+      margin-bottom: 32px;
+      font-size: 0.92rem;
+      color: #15803D;
+      font-weight: 600;
+    }
+    .savings-banner span {
+      font-weight: 700;
+    }
+
+    /* FAQ tweaks */
+    .faq-section { background: var(--off-white); }
+
+    @media (max-width: 600px) {
+      .single-plan-card { padding: 36px 24px; }
+      .plan-price-display .price-main { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="main-nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="assets/logo.png" alt="Pitchdex logo" />
+          <span class="nav-logo-name">Pitchdex</span>
+        </a>
+        <nav class="nav-links" id="nav-links">
+          <a href="features.html">Features</a>
+          <a href="pricing.html" class="active">Pricing</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <a href="contact.html" class="btn btn-primary btn-sm nav-cta">Get Early Access</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="pill pill-blue">Pricing</span>
+      <h1>One plan. Everything included.</h1>
+      <p>No tiers. No upsells. No feature gating. Just the full Pitchdex platform — investor database, cold email engine, meeting tracker — at one honest price.</p>
+    </div>
+  </section>
+
+  <!-- SINGLE PLAN -->
+  <section class="single-plan-wrapper">
+    <div class="single-plan-card">
+      <div class="plan-badge">Full Access</div>
+      <div class="plan-name">Pitchdex</div>
+      <p class="plan-tagline">Everything you need to close your round</p>
+
+      <!-- Toggle -->
+      <div class="plan-toggle">
+        <button class="plan-toggle-btn active" id="btn-monthly" onclick="setMonthly()">Monthly</button>
+        <button class="plan-toggle-btn" id="btn-annual" onclick="setAnnual()">Annual</button>
+      </div>
+
+      <!-- Price display -->
+      <div class="plan-price-display" id="price-display">
+        <span class="price-main"><sup>$</sup><span id="price-num">25</span></span>
+        <span class="price-period" id="price-period"> / month</span>
+      </div>
+      <p class="plan-price-note" id="price-note">&nbsp;</p>
+
+      <div class="plan-divider"></div>
+
+      <ul class="plan-features">
+        <li><span class="check">✓</span> Full investor database — 500+ vetted VC firms</li>
+        <li><span class="check">✓</span> Filter by stage, sector, check size &amp; geography</li>
+        <li><span class="check">✓</span> Cold email sequences sent from your own domain</li>
+        <li><span class="check">✓</span> AI-personalized first lines for every email</li>
+        <li><span class="check">✓</span> Automated follow-up sequences</li>
+        <li><span class="check">✓</span> Open, click &amp; reply tracking</li>
+        <li><span class="check">✓</span> Meeting tracker &amp; pipeline dashboard</li>
+        <li><span class="check">✓</span> Calendly integration for auto-scheduling</li>
+        <li><span class="check">✓</span> Domain warmup included</li>
+        <li><span class="check">✓</span> Email support</li>
+      </ul>
+
+      <a href="contact.html" class="btn btn-primary plan-cta">Get Early Access</a>
+      <p class="plan-guarantee">30-day money-back guarantee · Cancel anytime · No credit card to start</p>
+    </div>
+  </section>
+
+  <!-- MONEY BACK + TRUST -->
+  <section style="padding: 0 0 80px;">
+    <div class="container">
+      <div style="max-width: 640px; margin: 0 auto; background: var(--off-white); border-radius: 14px; padding: 28px 32px; text-align: center; border: 1px solid var(--neutral-light);">
+        <p style="font-size: 1rem; color: var(--neutral-dark); font-weight: 600; margin-bottom: 6px;">🎯 30-Day Money-Back Guarantee</p>
+        <p style="font-size: 0.92rem; color: var(--neutral-mid); margin: 0;">If you launch at least one sequence and don't book a VC meeting in your first 30 days, we'll refund you in full. No hoops.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="pill pill-blue">FAQ</span>
+        <h2>Questions founders ask</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button class="faq-question">
+            What's the difference between monthly and annual?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">Same product, same features. Annual billing is $150/year — that's $12.50/month, saving you $150 compared to paying monthly. Best for founders who know their raise will take a few months.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I cancel anytime?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">Yes. Cancel your subscription any time from your dashboard. Monthly plans: you retain access until end of the billing month. Annual plans: we'll prorate a refund for unused months.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Do I need my own domain to use the email platform?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">Yes — and it's strongly recommended. Sending from your own domain (e.g. you@yourstartup.com) dramatically improves deliverability and looks more credible to investors. Setup takes under 10 minutes, and we walk you through it.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How does the money-back guarantee work?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">If you've actively used the platform — launched at least one email sequence — and haven't booked a VC meeting within 30 days of signing up, email us and we'll refund your first payment in full. No forms, no friction.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Is there a free trial?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">We offer early access onboarding where you can explore the platform before your billing starts. Sign up to get your invite — no credit card required to join the waitlist.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Is Pitchdex GDPR compliant?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-answer">Yes. Our investor database contains only publicly available professional information. We follow all applicable data protection regulations including GDPR and CCPA.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Start booking VC meetings<br>this week</h2>
+      <p>Join founders who are systematically filling their pipelines with Pitchdex. Early access spots are limited.</p>
+      <a href="contact.html" class="btn btn-primary btn-lg">Get Early Access</a>
+      <p class="cta-note">$25/mo · Cancel anytime · 30-day money-back guarantee</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="assets/logo.png" alt="Pitchdex" />
+            <span class="nav-logo-name">Pitchdex</span>
+          </a>
+          <p class="footer-tagline">The investor database and cold email platform built for founders actively raising their round.</p>
+          <div class="footer-social">
+            <a href="#" title="Twitter / X">𝕏</a>
+            <a href="#" title="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="contact.html">Get Early Access</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Pitchdex Inc. All rights reserved.</span>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms-and-conditions.html">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+    const toggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // Billing toggle
+    function setMonthly() {
+      document.getElementById('btn-monthly').classList.add('active');
+      document.getElementById('btn-annual').classList.remove('active');
+      document.getElementById('price-num').textContent = '25';
+      document.getElementById('price-period').textContent = ' / month';
+      document.getElementById('price-note').innerHTML = '&nbsp;';
+    }
+    function setAnnual() {
+      document.getElementById('btn-annual').classList.add('active');
+      document.getElementById('btn-monthly').classList.remove('active');
+      document.getElementById('price-num').textContent = '150';
+      document.getElementById('price-period').textContent = ' / year';
+      document.getElementById('price-note').innerHTML = '<strong>Save $150</strong> — that\'s 6 months free';
+    }
+  </script>
+</body>
+</html>
