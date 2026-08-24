@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Listli — Conference Banner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #d0d0d0;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Banner: 24"×80" → 600×2000px at 96dpi equivalent */
+    .banner {
+      width: 600px;
+      min-height: 2000px;
+      background: #253b25;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── SECTION: TOP / LOGO ── */
+    .top-bar {
+      background: #fff;
+      padding: 28px 36px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 4px solid #4a7c47;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-img {
+      height: 42px;
+      width: auto;
+    }
+    .logo-text {
+      font-size: 30px;
+      font-weight: 800;
+      color: #253b25;
+      letter-spacing: -0.5px;
+    }
+    .logo-badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #4a7c47;
+      background: #eef4ec;
+      border: 1px solid #c3d9bf;
+      border-radius: 4px;
+      padding: 3px 7px;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    .top-url {
+      font-size: 13px;
+      font-weight: 600;
+      color: #3d5c3a;
+      letter-spacing: 0.2px;
+    }
+
+    /* ── SECTION: HERO HEADLINE ── */
+    .hero {
+      background: #253b25;
+      padding: 44px 36px 36px;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #4a7c47, #9bbf97, #4a7c47);
+    }
+    .hero-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9bbf97;
+      margin-bottom: 14px;
+    }
+    .hero-headline {
+      font-family: 'Lora', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: #9bbf97;
+    }
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 500;
+      color: #cddbc9;
+      line-height: 1.55;
+      margin-bottom: 22px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #cddbc9;
+    }
+    .hero-badge .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #9bbf97;
+      flex-shrink: 0;
+    }
+
+    /* ── SECTION: APP MOCKUPS ── */
+    .mockup-section {
+      background: linear-gradient(180deg, #253b25 0%, #1e3020 100%);
+      padding: 32px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mockup-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #9bbf97;
+      margin-bottom: 4px;
+    }
+    .mockup-placeholder {
+      background: rgba(255,255,255,0.06);
+      border: 2px dashed rgba(155,191,151,0.35);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #9bbf97;
+      font-size: 12px;
+      font-weight: 500;
+      text-align: center;
+      padding: 20px;
+    }
+    .mockup-placeholder .ph-icon {
+      font-size: 28px;
+      opacity: 0.5;
+    }
+    .mockup-placeholder.tall { height: 230px; }
+    .mockup-placeholder.short { height: 140px; }
+    .mockup-row {
+      display: flex;
+      gap: 12px;
+    }
+    .mockup-row .mockup-placeholder {
+      flex: 1;
+    }
+
+    /* ── SECTION: VALUE PROPS ── */
+    .value-section {
+      background: #fff;
+      padding: 36px 36px 32px;
+    }
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #4a7c47;
+      margin-bottom: 20px;
+    }
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .value-item:last-child { margin-bottom: 0; }
+    .value-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #eef4ec;
+      border: 1px solid #c3d9bf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .value-text h4 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #253b25;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .value-text p {
+      font-size: 12.5px;
+      color: #5a6b58;
+      line-height: 1.5;
+    }
+
+    /* ── SECTION: STATS ── */
+    .stats-section {
+      background: #3d5c3a;
+      padding: 30px 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 10px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .stat-num {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .stat-num span { font-size: 16px; }
+    .stat-lbl {
+      font-size: 10px;
+      color: #9bbf97;
+      margin-top: 5px;
+      line-height: 1.3;
+    }
+
+    /* ── SECTION: BUILDER CRED ── */
+    .cred-section {
+      background: #eef4ec;
+      padding: 28px 36px;
+      border-top: 1px solid #c3d9bf;
+      border-bottom: 1px solid #c3d9bf;
+    }
+    .cred-quote {
+      font-family: 'Lora', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: #253b25;
+      line-height: 1.45;
+      margin-bottom: 14px;
+    }
+    .cred-quote em {
+      font-style: italic;
+      color: #4a7c47;
+    }
+    .cred-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cred-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #4a7c47;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .cred-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #253b25;
+    }
+    .cred-title {
+      font-size: 11.5px;
+      color: #5a6b58;
+    }
+
+    /* ── SECTION: BOTTOM CTA ── */
+    .cta-section {
+      background: #253b25;
+      padding: 36px 36px 32px;
+      text-align: center;
+      flex: 1;
+    }
+    .cta-headline {
+      font-family: 'Lora', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .cta-sub {
+      font-size: 13px;
+      color: #9bbf97;
+      margin-bottom: 24px;
+    }
+    .qr-placeholder {
+      width: 130px;
+      height: 130px;
+      background: #fff;
+      border-radius: 12px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #5a6b58;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px;
+      border: 3px solid #4a7c47;
+    }
+    .cta-url {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+    .mls-badge {
+      font-size: 10px;
+      color: #9bbf97;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #1a2e1a;
+      padding: 14px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-logo {
+      font-size: 16px;
+      font-weight: 800;
+      color: #9bbf97;
+      letter-spacing: -0.3px;
+    }
+    .footer-legal {
+      font-size: 9px;
+      color: #5a6b58;
+      text-align: right;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+<div class="banner">
+
+  <!-- TOP BAR: LOGO -->
+  <div class="top-bar">
+    <div class="logo-wrap">
+      <img src="listli-logo.png" alt="Listli" class="logo-img" onerror="this.style.display='none'" />
+      <div>
+        <div class="logo-text">Listli</div>
+        <div class="logo-badge">For REALTORS®</div>
+      </div>
+    </div>
+    <div class="top-url">listli.ca</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">CMA Reports · Market Intelligence</div>
+    <div class="hero-headline">
+      Win listings.<br>
+      Price with <em>confidence.</em>
+    </div>
+    <div class="hero-sub">
+      Professional CMA reports that help REALTORS® walk into every listing presentation ready to impress — and win.
+    </div>
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Built by a full-time REALTOR®, for REALTORS®
+    </div>
+  </div>
+
+  <!-- APP MOCKUPS -->
+  <div class="mockup-section">
+    <div class="mockup-label">See it in action</div>
+
+    <!-- Primary large mockup -->
+    <div class="mockup-placeholder tall">
+      <div class="ph-icon">📱</div>
+      <div>
+        <strong>Screenshot: CMA Report View</strong><br>
+        <span style="opacity:0.7">Replace with app screenshot</span>
+      </div>
+    </div>
+
+    <!-- Two smaller side-by-side -->
+    <div class="mockup-row">
+      <div class="mockup-placeholder short">
+        <div class="ph-icon">📊</div>
+        <div>
+          <strong>Market Stats</strong><br>
+          <span style="opacity:0.7">Screenshot</span>
+        </div>
+      </div>
+      <div class="mockup-placeholder short">
+        <div class="ph-icon">🏡</div>
+        <div>
+          <strong>Comp Analysis</strong><br>
+          <span style="opacity:0.7">Screenshot</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUE PROPS -->
+  <div class="value-section">
+    <div class="section-eyebrow">Why REALTORS® choose Listli</div>
+
+    <div class="value-item">
+      <div class="value-icon">⚡</div>
+      <div class="value-text">
+        <h4>CMAs in minutes, not hours</h4>
+        <p>Generate polished, professional reports fast — so you can focus on the client, not the paperwork.</p>
+      </div>
+    </div>
+
+    <div class="value-item">
+      <div class="value-icon">🎯</div>
+      <div class="value-text">
+        <h4>Win more listing presentations</h4>
+        <p>Show sellers a data-backed price with confidence. Look like the expert you are.</p>
+      </div>
+    </div>
+
+    <div class="value-item">
+      <div class="value-icon">📈</div>
+      <div class="value-text">
+        <h4>Real MLS® data, always current</h4>
+        <p>No stale data. Pricing backed by live MLS® figures your clients can trust.</p>
+      </div>
+    </div>
+
+    <div class="value-item">
+      <div class="value-icon">🤝</div>
+      <div class="value-text">
+        <h4>Built for how you actually work</h4>
+        <p>Designed by a full-time REALTOR® who uses it every day — not a tech team guessing at your workflow.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="stat-card">
+      <div class="stat-num">3<span>min</span></div>
+      <div class="stat-lbl">Avg. CMA report time</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-lbl">Real MLS® data</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">↑</div>
+      <div class="stat-lbl">More listings won</div>
+    </div>
+  </div>
+
+  <!-- BUILDER CRED -->
+  <div class="cred-section">
+    <div class="cred-quote">
+      <em>"I built Listli because I needed it myself."</em> A tool that actually fits how REALTORS® work — not how a software team imagined we do.
+    </div>
+    <div class="cred-author">
+      <div class="cred-avatar">R</div>
+      <div>
+        <div class="cred-name">The Listli Team</div>
+        <div class="cred-title">Full-time REALTORS®, building for REALTORS®</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="cta-section">
+    <div class="cta-headline">Try Listli free.<br>Win your next listing.</div>
+    <div class="cta-sub">Scan to get started — no credit card required.</div>
+    <div class="qr-placeholder">
+      QR Code<br>
+      <span style="font-size:9px; color:#9bbf97">→ listli.ca</span>
+    </div>
+    <div class="cta-url">listli.ca</div>
+    <div class="mls-badge">Powered by real MLS® data</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-logo">Listli</div>
+    <div class="footer-legal">
+      MLS® is a registered trademark of the Canadian Real Estate Association.<br>
+      REALTOR® is a registered trademark of CREA.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
