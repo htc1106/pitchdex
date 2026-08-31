@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PolarGrid GB300 NVL72 Cluster</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #09090B;
+    color: #fff;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @page { margin: 0; size: 8.5in 11in; }
+
+  /* ─── HEADER ─── */
+  .header {
+    padding: 22px 44px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(211,26,113,0.10) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .wordmark { font-size: 19px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
+  .wordmark .polar { color: #D31A71; }
+  .wordmark .grid  { color: #fff; }
+
+  .header-badge {
+    background: rgba(211,26,113,0.10);
+    border: 1px solid rgba(211,26,113,0.30);
+    color: #D31A71;
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 20px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: -1.2px;
+    line-height: 1;
+    color: #fff;
+    display: inline;
+  }
+  .header h1 em { font-style: normal; color: #D31A71; }
+
+  .header-sub {
+    margin-top: 7px;
+    font-size: 11.5px;
+    color: #A0A0B0;
+    line-height: 1.45;
+  }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    display: flex;
+    background: #0F0F12;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+  }
+
+  .stat {
+    flex: 1;
+    padding: 11px 10px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+  }
+  .stat:last-child { border-right: none; }
+
+  .stat-num { font-size: 19px; font-weight: 800; letter-spacing: -0.6px; color: #fff; line-height: 1; }
+  .stat-num span { font-size: 11px; font-weight: 600; color: #D31A71; }
+  .stat-label { font-size: 8.5px; font-weight: 500; color: #6B7280; letter-spacing: 0.8px; text-transform: uppercase; margin-top: 3px; }
+
+  /* ─── BODY ─── */
+  .body {
+    padding: 16px 44px 14px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px 32px;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .section-title {
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #D31A71;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(211,26,113,0.25);
+  }
+
+  .spec-table { width: 100%; border-collapse: collapse; }
+  .spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .spec-table tr:last-child { border-bottom: none; }
+  .spec-table td { padding: 4px 0; font-size: 10px; vertical-align: top; line-height: 1.35; }
+  .spec-table td:first-child { color: #A0A0B0; width: 44%; font-weight: 400; }
+  .spec-table td:last-child { color: #fff; font-weight: 600; }
+
+  .mono { font-family: 'Geist Mono', monospace; font-size: 9.5px; color: #D31A71; }
+
+  .feature-list { list-style: none; }
+  .feature-list li {
+    font-size: 10px;
+    color: #A0A0B0;
+    padding: 4px 0 4px 14px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    line-height: 1.35;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list li::before { content: '→'; position: absolute; left: 0; color: #D31A71; font-weight: 700; font-size: 9px; top: 5px; }
+  .feature-list li strong { color: #fff; font-weight: 600; }
+
+  .stacked { margin-top: 12px; }
+
+  /* ─── SCALE-UP ─── */
+  .full-width { grid-column: 1 / -1; }
+
+  .scale-box {
+    background: #0F0F12;
+    border: 1px solid rgba(211,26,113,0.25);
+    border-radius: 7px;
+    padding: 13px 20px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .scale-left { flex: 1; }
+
+  .scale-eyebrow {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D31A71;
+    font-family: 'Geist Mono', monospace;
+    margin-bottom: 5px;
+  }
+
+  .scale-headline {
+    font-size: 17px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
+  .scale-headline span { color: #D31A71; }
+
+  .scale-sub { font-size: 10px; color: #A0A0B0; line-height: 1.5; max-width: 320px; }
+
+  .scale-stats {
+    display: flex;
+    gap: 0;
+    border-left: 1px solid rgba(255,255,255,0.07);
+    padding-left: 28px;
+    flex-shrink: 0;
+  }
+
+  .scale-stat {
+    text-align: center;
+    padding: 0 18px;
+    border-right: 1px solid rgba(255,255,255,0.07);
+  }
+  .scale-stat:last-child { border-right: none; padding-right: 0; }
+
+  .scale-num { font-size: 16px; font-weight: 800; color: #fff; letter-spacing: -0.5px; line-height: 1; }
+  .scale-num span { font-size: 10px; font-weight: 600; color: #D31A71; }
+  .scale-label { font-size: 8px; font-weight: 500; color: #6B7280; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 4px; }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: #0F0F12;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 10px 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .footer-left { font-size: 8.5px; color: #6B7280; line-height: 1.5; }
+  .footer-cta { text-align: right; }
+  .footer-cta .cta-label { font-size: 8px; color: #6B7280; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 2px; }
+  .footer-cta .cta-url { font-size: 12px; font-weight: 700; color: #D31A71; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="wordmark"><span class="polar">POLAR</span><span class="grid">GRID</span></div>
+    <div class="header-badge">Dedicated Bare-Metal · GPU Compute</div>
+  </div>
+  <h1>GB300 NVL72 <em>Cluster.</em></h1>
+  <div class="header-sub">576 GB300 Blackwell Ultra GPUs available February 2027. 165.9 TB HBM3e. One dedicated cluster: no shared tenancy, no throttling. Located in Canada. Optional: ramp up to a 2,304-GPU cluster by August 2027.</div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">576 <span>GPUs</span></div>
+    <div class="stat-label">GB300</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">165.9 <span>TB</span></div>
+    <div class="stat-label">HBM3e Memory</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8 <span>SUs</span></div>
+    <div class="stat-label">NVL72 Racks</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1.8 <span>TB/s</span></div>
+    <div class="stat-label">NVLink 5 per GPU</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">288 <span>CPUs</span></div>
+    <div class="stat-label">Integrated Grace</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- Col 1 -->
+  <div class="section">
+    <div class="section-title">Cluster Architecture</div>
+    <table class="spec-table">
+      <tr><td>Total GPUs</td><td>576 × NVIDIA Blackwell Ultra</td></tr>
+      <tr><td>Scalable Units</td><td>8 × GB300 NVL72 racks</td></tr>
+      <tr><td>GPUs per SU</td><td>72, single NVLink 5 domain</td></tr>
+      <tr><td>Compute Trays</td><td>144 total (18 per SU)</td></tr>
+      <tr><td>Grace CPUs</td><td>288 integrated (2 per tray)</td></tr>
+      <tr><td>NVLink Switch Trays</td><td>72 total (9 per SU)</td></tr>
+      <tr><td>Target Ready</td><td>February 25, 2027</td></tr>
+    </table>
+
+    <div class="section-title stacked">Memory</div>
+    <table class="spec-table">
+      <tr><td>HBM3e per GPU</td><td><span class="mono">≥ 288 GB</span></td></tr>
+      <tr><td>HBM3e per SU</td><td><span class="mono">≈ 20.7 TB</span></td></tr>
+      <tr><td>HBM3e total</td><td><span class="mono">≈ 165.9 TB</span></td></tr>
+      <tr><td>Grace Host Mem</td><td>Fully populated OEM baseline</td></tr>
+      <tr><td>Local Storage</td><td>OEM boot + NVMe data cache</td></tr>
+    </table>
+  </div>
+
+  <!-- Col 2 -->
+  <div class="section">
+    <div class="section-title">Networking &amp; Fabric</div>
+    <table class="spec-table">
+      <tr><td>Scale-Up</td><td>NVLink 5, <span class="mono">1.8 TB/s</span> bidir. per GPU</td></tr>
+      <tr><td>Scale-Out</td><td>Quantum-X800 InfiniBand, rail-optimized 8-SU</td></tr>
+      <tr><td>Host NICs</td><td>4 × ConnectX-8 per tray (<span class="mono">800 Gb/s</span>/GPU)</td></tr>
+      <tr><td>DPU</td><td>BlueField-3-class per tray</td></tr>
+      <tr><td>Traffic Sep.</td><td>GPU east-west fully isolated</td></tr>
+      <tr><td>OOB Mgmt</td><td>Dedicated network, NTP/PTP sync</td></tr>
+    </table>
+
+    <div class="section-title stacked">Power &amp; Facility</div>
+    <table class="spec-table">
+      <tr><td>Power per Rack</td><td><span class="mono">120–142 kW</span> OEM profile</td></tr>
+      <tr><td>Headroom</td><td>100–110% of signed OEM profile</td></tr>
+      <tr><td>Cooling</td><td>Liquid-cooled, OEM-spec chemistry</td></tr>
+      <tr><td>Throttling</td><td>No persistent cap on performance</td></tr>
+      <tr><td>Facility Valid.</td><td>OEM-authorized review at delivery</td></tr>
+      <tr><td>Maintenance</td><td>≥ 10 business days notice</td></tr>
+    </table>
+  </div>
+
+  <!-- Col 3 -->
+  <div class="section">
+    <div class="section-title">Access &amp; Observability</div>
+    <ul class="feature-list">
+      <li><strong>Full bare-metal access:</strong> PXE image deploy, your OS</li>
+      <li><strong>DCGM telemetry:</strong> clocks, temps, power, ECC, NVLink</li>
+      <li><strong>Fabric metrics:</strong> link speed, error &amp; congestion counters</li>
+      <li><strong>90-day</strong> telemetry retention, 12-month incident records</li>
+      <li><strong>24/7</strong> incident intake with defined severity SLAs</li>
+    </ul>
+
+    <div class="section-title stacked">Acceptance &amp; Quality</div>
+    <ul class="feature-list">
+      <li><strong>Signed ATM:</strong> objective pass/fail before we ship</li>
+      <li><strong>24-hour full-load soak</strong> per SU before handover</li>
+      <li>Extended DCGM diagnostics across all 576 GPUs</li>
+      <li>HBM bandwidth, NVLink topology &amp; NCCL benchmarks</li>
+      <li><strong>10 business-day</strong> customer test window per Tranche</li>
+      <li><strong>Rack-by-rack:</strong> one failed SU won't block others</li>
+    </ul>
+  </div>
+
+  <!-- Scale-Up – full width -->
+  <div class="section full-width">
+    <div class="scale-box">
+      <div class="scale-left">
+        <div class="scale-eyebrow">Optional · Available by August 2027</div>
+        <div class="scale-headline">Scale to <span>2,304 GPUs.</span></div>
+        <div class="scale-sub">Expand from the initial 576-GPU cluster to a 2,304-GPU fleet across 32 GB300 NVL72 Scalable Units. Same hardware generation, same fabric architecture, same acceptance standards.</div>
+      </div>
+      <div class="scale-stats">
+        <div class="scale-stat">
+          <div class="scale-num">Aug <span>2027</span></div>
+          <div class="scale-label">Target Ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    <strong style="color:#fff;">PolarGrid Corporation</strong> &nbsp;·&nbsp; GB300 NVL72 Cluster Sell Sheet<br>
+    For discussion purposes only. All specifications subject to final executed Agreement.
+  </div>
+  <div class="footer-cta">
+    <div class="cta-label">Learn more</div>
+    <div class="cta-url">polargrid.ai</div>
+  </div>
+</div>
+
+</body>
+</html>

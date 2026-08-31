@@ -1,0 +1,32 @@
+
+
+════════════════════════════════════════
+TO-DO CHECKLIST
+🔴 Urgent / deal-blocking
+🟡 Important, action needed soon
+🟢 Lower priority / straightforward
+════════════════════════════════════════
+
+TECHNICAL
+🔴 [ ] Build out full 144-node B300 cluster config proposal (CPU, memory, IB topology, switches, rack/power)
+🔴 [ ] Spec GPFS (~300TB) and object storage (~3PB) options with cost/timeline differences
+🔴 [ ] Confirm 8-week delivery timeline with ops team
+🟡 [ ] Clarify PCIe NVMe vs U.2 NVMe for cache with Eric, get final chassis model number for storage nodes
+
+LEGAL & FINANCE
+🔴 [ ] Have legal team send over MSA template
+🔴 [ ] Have legal include escrow structure: majority held untouched until delivery + acceptance
+🔴 [ ] Include SLA with delivery delay remedies (credits, liquidated damages, termination + refund rights)
+🟡 [ ] Confirm with finance what % of downpay must be released upfront vs held in escrow
+🟡 [ ] Explore passing OEM delivery risk to Supermicro in the contract
+
+DUE DILIGENCE (for Hans's team)
+🔴 [ ] Provide proof of cage/colocation rights at WA site for 3-year term (lease, colo MSA, LOA)
+🔴 [ ] Provide power/cooling/rack capacity evidence for 144-node cluster + expansion room
+🟡 [ ] Provide Supermicro OEM/distributor relationship evidence (quote, allocation, PO history)
+🟢 [ ] Offer NDA if needed before sharing sensitive DD docs
+
+OTHER
+🔴 [ ] Send payment terms document to Hans
+🟡 [ ] Follow up with Eric on alternative EPYC storage node spec (for the other deal with Joe)
+🟡 [ ] Respond to Joe's buyer with updated chassis model once Eric confirms

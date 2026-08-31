@@ -1,0 +1,210 @@
+TaxGrit BDR Cold Call Script
+Canadian CPA Firms
+Goal of every call: book a 30-minute scoping call. Nothing else. Do not demo. Do not explain the product in detail. Sell the meeting.
+
+The frame: you are not selling software on this call. You are offering 30 minutes to walk one real T1 or T2 file through intake to review-ready hand-off. That is a low ask. Keep it low.
+
+Tone rules:
+
+Talk like a person, not a rep. These are accountants. They smell scripts instantly.
+Short sentences. No jargon. Never say "solution," "platform," "streamline," or "leverage."
+If they talk, just listen. Every detail they give you is a hook.
+Never trash their current setup. Their process got them this far. Respect it, then show what it's costing them.
+
+
+THE PROBLEM (read this before your first dial)
+The main problem, in one sentence: a CPA firm's busiest weeks are bottlenecked by incomplete client files, manual document chasing, and status calls that eat hours that should be billable preparation time.
+
+That's the disease. Everything below is a symptom. On a call, you're listening for which symptom this firm feels most, then pulling on that one.
+
+The 8 problems CPA firms live with:
+
+Files arrive incomplete. Clients upload what they remember. Missing T4s, T5s, donation receipts, and business documents mean the preparer can't start. The file sits waiting.
+Client chasing is a part-time job. Every missing document becomes a phone call, an email, a second email, and then a call again. That's staff time that doesn't bill.
+"Is my return done yet?" calls eat peak-week hours. When clients have no visibility into where their file is, they call to ask. Tax season phone time adds up fast.
+File status is unclear internally. The partner doesn't always know if the preparer has started, the client has responded, or the reviewer is waiting on a document. Status lives in someone's head.
+Manual data entry creates errors and review risk. Reading T-slips by hand and keying figures introduces errors. Someone has to catch them in review. Sometimes they don't.
+Corporate year-ends slip without a system. T2 files with non-calendar fiscal year-ends need their own deadline tracking. Managing FYEs across dozens of corporate clients in a spreadsheet or by memory is risky.
+The transition to filing software is messy. Getting a half-prepared file from intake into TaxCycle, ProFile, Cantax, or Taxprep cleanly, with all figures confirmed, takes coordination that not every firm has built well.
+Busy season capacity never grows. The same team does the same volume year after year because the process doesn't scale. Hiring doesn't fix a workflow problem.
+
+Why this matters for your call: CPAs know these problems but accept them as seasonal reality. Your job is not to explain their problems to them. Your job is to ask a question that makes them describe the problem out loud, then offer 30 minutes with a team that built the fix specifically for Canadian firms.
+
+
+OPENER (both versions)
+If the partner or manager answers:
+
+"Hi, is this [Name]? This is [BDR] calling from TaxGrit. We build workflow software specifically for Canadian CPA firms, for the pre-filing work before files get into TaxCycle or ProFile. Quick question: when a T1 comes in right now, how does your team handle collecting the documents and chasing what's missing?"
+
+Then stop talking. Their answer tells you which pain to pull on.
+
+Or:
+
+"Hi, my name is [Name] and I am calling from TaxGrit. We are a Canadian pre-filing workflow tool built specifically for CPA firms doing T1 and T2 work. I was just looking at your firm and wanted to ask: how are you currently handling client document collection and status tracking before files hit your filing software?"
+
+Then stop talking.
+
+The opening question bank
+The question is the whole call. A good one does three things: proves you know their world, makes them describe their own pain out loud, and cannot be answered with a flat "no thanks." Ask ONE. Then be silent, even if the silence is uncomfortable. The first person to talk after the question loses.
+
+The default (intake and chasing):
+
+"When a T1 comes in right now, how does your team handle collecting the documents and chasing what's missing?"
+
+The status call question:
+
+"How many times a week do clients call your office asking if their return is done yet? And who ends up answering those?"
+
+The incomplete file question:
+
+"When a file comes in with documents missing, what does that process look like? Who chases the client, and how?"
+
+The corporate year-end question (T2 firms):
+
+"For your T2 clients, how are you tracking year-end deadlines across all your corporate files? Is that a system or is someone keeping that list?"
+
+The filing software handoff question:
+
+"When a file is ready to move into TaxCycle or ProFile, what does that handoff look like? Is it clean or is there usually back-and-forth before the preparer can start?"
+
+The capacity question:
+
+"Last busy season, was your team able to take on more work, or did volume max out around the same point it always does?"
+
+Rule of thumb: use the intake question as the default. Use the status call question when talking to an admin or receptionist. Use the corporate year-end question the moment you learn the firm has significant T2 volume. Never ask more than two questions before making the ask. This is a cold call, not an interview.
+
+If a receptionist or admin answers:
+
+Do not ask for the partner immediately. The admin is often the one doing the chasing, and they feel it daily.
+
+"Maybe you can actually help me more than the partner can. You might be the one handling this. When a client is missing documents, who usually follows up with them? Is that a system or does someone have to remember to do it?"
+
+If they engage, pitch them, then close with:
+
+"Here is what I would suggest. Our team does 30-minute calls where we walk one real T1 or T2 file from intake to review-ready hand-off. Would you and [partner name] be able to join together, or should I set it up with you first?"
+
+If someone else answers:
+
+"No problem. Who handles the workflow and software decisions at the firm? And what is the best time to reach them?"
+
+Log the name and time. That is a qualified next step. Move on.
+
+
+VERSION A: T1-focused firms (personal tax volume)
+Who this is: firms with meaningful personal tax volume doing intake, document collection, and review by email and spreadsheet or a basic portal.
+
+Core message: your team is spending hours on client chasing and status calls that do not need to happen. That time is capacity you are not getting back.
+
+Talking points (use 1-2 per call, matched to what they said, never all of them)
+
+1. The intake that collects the file for you.
+
+"TaxGrit sends clients a plain-language intake form. It asks for what they actually need to provide, requests missing items automatically, and flags what is still outstanding. The file does not move forward until it is complete. Your team stops chasing and starts preparing."
+
+2. T-slip OCR that does the data entry.
+
+"Clients upload their T-slips, T4s, T5s, donation receipts. TaxGrit reads the slips and pulls the figures into fields, flagged for your preparer to confirm. That is a significant chunk of manual keying removed from every file."
+
+3. Status visibility that stops the calls.
+
+"Every client can see exactly where their file is in the process. Named stages, both sides. When clients know where they stand, they stop calling to ask. Firms using TaxGrit report a noticeable drop in peak-week phone traffic."
+
+4. T183 e-signature in the same workflow.
+
+"The T183, the form that authorizes EFILE, is captured in the same flow. Clients sign it digitally. No printing, no scanning, no chasing paper."
+
+5. Review-ready hand-off to your filing software.
+
+"When the file is prepared and reviewed, TaxGrit hands it off clean to TaxCycle, ProFile, Cantax, or Taxprep, whatever your firm already uses. Nothing changes on the filing side. TaxGrit handles everything before."
+
+The close (Version A):
+"I am not going to walk you through the whole product on a cold call. Here is the honest pitch: our team does a 30-minute scoping call where we take one of your real T1 files and walk it through the workflow, intake, the missing-info chase, the review-ready hand-off. You see exactly how it maps to what your firm does today. Does [day] or [day] work?"
+
+
+VERSION B: T2 and mixed-volume firms
+Who this is: firms with meaningful corporate tax volume, or firms running both T1 and T2 with year-end deadline exposure.
+
+Core message: corporate files have their own rhythm and their own risk. A missed year-end or a sloppy GIFI handoff costs the firm more than just time. TaxGrit gives T2 work its own board.
+
+Talking points
+
+1. Year-end tracking that does not live in a spreadsheet.
+
+"TaxGrit tracks each T2 client's fiscal year-end and computes the filing deadline. The whole board shows you which files have deadlines approaching, which are waiting on the client, and which are in review. Nothing slips because someone forgot to update a spreadsheet."
+
+2. Corporate intake built for the T2 file.
+
+"The T2 SmartForm collects legal entity details, shareholder and director information, and the documents that always get missed on a first intake. Clients fill it out, TaxGrit tracks what is outstanding."
+
+3. Bank statements and GIFI handled before the preparer touches it.
+
+"Clients upload bank statements directly. TaxGrit handles the GIFI categorization for the trial balance and flags items for review. The preparer gets a file that is ready to work, not one they have to sort first."
+
+4. Review gates built into the workflow.
+
+"Client review and firm review are both built into the board. Nothing moves to filing until both gates are cleared. The partner has a clean view of what is waiting without checking in with the preparer."
+
+5. TaxCycle-ready export.
+
+"The hand-off to TaxCycle, or whichever filing software the firm uses, is clean. Review-ready package, all figures confirmed. The preparer picks it up and files."
+
+The close (Version B):
+"Thirty minutes. Our team will pull up a T2 workflow on one of your real corporate clients, walk the intake, the year-end tracking, the review gates, and the TaxCycle hand-off. If it does not fit, you will know in the first ten minutes. Does [day] or [day] work?"
+
+
+PROOF LINES (both versions)
+Use when they ask "who else is using this?" or when momentum stalls:
+
+"We are live with Canadian CPA firms today, built specifically for the T1 and T2 workflow before filing. We are SOC 2 Type II compliant, data is hosted in Canada on AWS, and we never use client tax data to train models. That matters to the firms we are talking to. We are growing carefully and we take every scoping call ourselves, which is part of why we still do these calls directly."
+
+
+OBJECTION BANK (shared)
+
+"We are too busy right now."
+
+"That is usually when this matters most. Missing documents and status calls are a busy season problem. The call is 30 minutes and we work around your schedule. When does the phone quiet down a little, mornings or after five? We can do early or late."
+
+"We already have a client portal."
+
+"Most firms do. The question is whether your portal is doing the chasing for you, or whether your staff still follows up manually when something is missing. If documents come in incomplete and someone on your team has to send a second request, that is the problem TaxGrit fixes. Worth 30 minutes to see the difference?"
+
+"We use [existing software] and it works."
+
+"Most of the firms we talk to say something similar, and what they are using does work. The question is how much time the team spends before a file is ready to actually prepare. If intake, chasing, and status calls are still mostly manual, TaxGrit handles that layer without replacing what you have. Your filing software stays exactly as is."
+
+"How much does it cost?"
+
+"It depends on firm size and volume, so I will not give you a number that does not fit your situation. What I can tell you is that we are built for Canadian CPA firms and pricing reflects that. The 30-minute call is where we scope it properly and give you a real number. Not a brochure number."
+
+(If pushed hard for a ballpark: give the range you have been authorized to share, then return to booking the call. Never negotiate pricing on a cold call.)
+
+"Just send me an email."
+
+"Happy to, and I will be honest: emails get buried in busy season. Here is a better option. Give me 30 minutes on a real T1 or T2 file instead. If it is not relevant, you will know quickly and we will leave you alone. Does [day] or [day] work?"
+
+"We are a small firm, it probably does not make sense."
+
+"Smaller firms are actually where this matters more, not less. A large firm has staff to absorb the chaos. At a smaller firm, the partners and senior staff are doing the chasing themselves. That is the highest-cost version of the problem. And smaller firms are faster to set up."
+
+"Is my data safe?"
+
+"TaxGrit is SOC 2 Type II compliant. Data is hosted in Canada on AWS Canada Central. Role-based access, enforced server-side. And client tax data is never used to train any models. The SOC 2 report is available under NDA. If security is a real concern, the 30-minute call is actually where that conversation makes sense."
+
+"We are happy with how things run right now."
+
+"Understood. The one question I would leave you with: in the last busy season, did your team get through it without your staff chasing clients for documents and answering status calls all week? If yes, genuinely good. If there is any version of that happening, it is worth 30 minutes."
+
+"I am just the office manager, you need to talk to the partner."
+
+"You might actually be the right person to start with, because you are probably the one doing the chasing. If TaxGrit does not work for your day-to-day, it will not work for the firm. What is the most time-consuming part of your week during tax season? [Listen.] That is exactly what the 30-minute call covers. Could you get the partner on for 30 minutes together?"
+
+"Call me back after tax season."
+
+"Happy to. One thought first: the firms that set this up before busy season are the ones who actually use it during busy season. Setting it up after is closing the gate after the files are already backed up. What if we did the 30-minute scoping call now, and the actual setup waits until your schedule opens up? No commitment in between."
+
+
+HARD RULES FOR THE BDR
+Never claim features that are not live. If asked about something in development: "That is on the roadmap. The scoping call is where you would hear the honest timeline." Honesty on a cold call is a differentiator.
+Never talk down the accounting profession. No "modernize your practice" framing. These are professionals running real firms. TaxGrit removes overhead. It does not rescue anyone.
+Every call ends with a next step. A booked meeting, a callback with a name, or a clean disqualify. "I will send information" is not a next step.
+TaxGrit does not file to the CRA and does not replace the preparer. Never imply otherwise. The value is everything that happens before the filing software.

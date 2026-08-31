@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The PolarGrid Software Moat</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --pink: #D31A71;
+    --pink-dim: rgba(211,26,113,0.12);
+    --pink-border: rgba(211,26,113,0.25);
+    --bg: #09090B;
+    --surface: #0F0F12;
+    --surface2: #141418;
+    --border: rgba(255,255,255,0.07);
+    --text: #FFFFFF;
+    --text-secondary: #A0A0B0;
+    --text-muted: #5a5a6e;
+    --green: #22C55E;
+    --green-dim: rgba(34,197,94,0.1);
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── COVER PAGE ── */
+  .cover {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 64px 72px;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(211,26,113,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .cover-logo svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cover-logo-text {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.4px;
+    color: #fff;
+  }
+
+  .cover-logo-text span {
+    color: var(--pink);
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+  }
+
+  .cover-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pink-dim);
+    border: 1px solid var(--pink-border);
+    color: var(--pink);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .cover-title {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 24px;
+    max-width: 640px;
+  }
+
+  .cover-title span {
+    color: var(--pink);
+  }
+
+  .cover-subtitle {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .cover-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+
+  .cover-footer-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .cover-footer-date {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ── CONTENT PAGES ── */
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg);
+    padding: 64px 72px;
+    page-break-after: always;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── PAGE TITLE ── */
+  .page-title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+
+  /* ── THESIS CALLOUT ── */
+  .thesis-callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--pink);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 32px;
+  }
+
+  .thesis-callout p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 16px;
+  }
+
+  .thesis-callout p:last-child {
+    margin-bottom: 0;
+  }
+
+  .thesis-callout strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 28px;
+  }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--pink-dim);
+    border: 1px solid var(--pink-border);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .card-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--pink);
+  }
+
+  .card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: -0.2px;
+  }
+
+  .card p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .card p strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ── FLYWHEEL ── */
+  .flywheel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .flywheel-step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 24px;
+    position: relative;
+  }
+
+  .flywheel-num {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--pink);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .flywheel-step h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+  }
+
+  .flywheel-step p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .flywheel-arrow {
+    text-align: center;
+    color: var(--pink);
+    font-size: 22px;
+    grid-column: 1 / -1;
+    opacity: 0.5;
+  }
+
+  /* ── TABLE ── */
+  .capability-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 13px;
+  }
+
+  .capability-table thead th {
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: 0 16px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .capability-table tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .capability-table tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  .capability-table tbody td {
+    padding: 14px 16px;
+    vertical-align: top;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .capability-table tbody td:first-child {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .tag-live {
+    background: var(--green-dim);
+    color: var(--green);
+    border: 1px solid rgba(34,197,94,0.2);
+  }
+
+  .tag-loop {
+    background: var(--pink-dim);
+    color: var(--pink);
+    border: 1px solid var(--pink-border);
+    font-size: 9px;
+  }
+
+  /* ── STRATEGIC SECTION ── */
+  .strategy-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+
+  .strategy-block h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .strategy-block p {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .strategy-block p strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* ── CLOSING PAGE ── */
+  .closing {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 64px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .closing::before {
+    content: '';
+    position: absolute;
+    bottom: -200px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(211,26,113,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .closing-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .closing-quote {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+    line-height: 1.35;
+    max-width: 580px;
+    margin-bottom: 16px;
+  }
+
+  .closing-quote span {
+    color: var(--pink);
+  }
+
+  .closing-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 480px;
+    line-height: 1.6;
+  }
+
+  .closing-contact {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 48px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+    width: fit-content;
+  }
+
+  .closing-contact-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .closing-contact-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .closing-contact-email {
+    font-size: 13px;
+    color: var(--pink);
+  }
+
+  .closing-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ── PAGE FOOTER ── */
+  .page-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  /* ── BODY TEXT ── */
+  .body-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .body-text strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .highlight-pill {
+    display: inline-block;
+    background: var(--pink-dim);
+    border: 1px solid var(--pink-border);
+    color: var(--pink);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin: 0 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- COVER PAGE                                     -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-logo">
+    <svg width="40" height="40" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip_pg)">
+<path d="M207.477 331.839C204.244 331.839 200.975 331.412 197.777 330.56L78.6346 298.076C65.7006 294.593 55.4671 284.393 51.9848 271.385L19.5077 152.29C16.0254 139.282 19.7564 125.35 29.2437 115.826L115.873 29.1785C125.36 19.6893 139.325 15.9575 152.294 19.4405L271.437 51.9242C284.371 55.4072 294.604 65.6072 298.086 78.6149L330.564 197.71C334.046 210.718 330.315 224.65 320.827 234.174L234.198 320.821C227.056 327.965 217.355 331.839 207.477 331.839ZM142.558 32.4127C136.411 32.4127 130.371 34.8294 125.929 39.2719L39.2996 125.883C33.4011 131.783 31.0559 140.49 33.2234 148.594L65.7006 267.689C67.8681 275.828 74.264 282.189 82.33 284.357L201.472 316.841C209.503 319.009 218.208 316.663 224.142 310.764L310.736 224.152C316.635 218.217 318.98 209.545 316.812 201.442L284.335 82.3467C282.168 74.208 275.772 67.8463 267.706 65.6783L148.564 33.1946C146.574 32.6614 144.548 32.4127 142.523 32.4127H142.558Z" fill="#D31A71"/>
+<path d="M323.35 222.197L134.563 211.678C130.797 211.464 127.848 208.337 127.848 204.569V26.6552C127.848 22.7457 131.046 19.5471 134.954 19.5471C138.863 19.5471 142.061 22.7457 142.061 26.6552V197.852L323.741 208.017C327.65 208.23 330.67 211.606 330.457 215.516C330.244 219.283 327.117 222.233 323.35 222.233V222.197Z" fill="#D31A71"/>
+<path d="M66.7667 290.399C65.1322 290.399 63.4621 289.83 62.1119 288.658C59.1626 286.099 58.8073 281.585 61.4012 278.635L129.625 199.878C129.802 199.7 129.98 199.487 130.158 199.31L278.472 61.4846C281.35 58.819 285.828 58.9612 288.528 61.84C291.229 64.7187 291.051 69.1968 288.173 71.8978L140.142 209.438L72.2032 287.911C70.7819 289.546 68.8276 290.364 66.8378 290.364L66.7667 290.399Z" fill="#D31A71"/>
+<path d="M134.954 231.225C149.673 231.225 161.604 219.291 161.604 204.569C161.604 189.848 149.673 177.914 134.954 177.914C120.236 177.914 108.305 189.848 108.305 204.569C108.305 219.291 120.236 231.225 134.954 231.225Z" fill="#D31A71"/>
+<path d="M66.7665 309.946C81.4847 309.946 93.4162 298.012 93.4162 283.291C93.4162 268.57 81.4847 256.636 66.7665 256.636C52.0482 256.636 40.1167 268.57 40.1167 283.291C40.1167 298.012 52.0482 309.946 66.7665 309.946Z" fill="#D31A71"/>
+<path d="M283.269 93.3997C297.987 93.3997 309.919 81.4658 309.919 66.7445C309.919 52.0233 297.987 40.0894 283.269 40.0894C268.551 40.0894 256.619 52.0233 256.619 66.7445C256.619 81.4658 268.551 93.3997 283.269 93.3997Z" fill="#D31A71"/>
+<path d="M134.954 53.3103C149.673 53.3103 161.604 41.3764 161.604 26.6552C161.604 11.9339 149.673 0 134.954 0C120.236 0 108.305 11.9339 108.305 26.6552C108.305 41.3764 120.236 53.3103 134.954 53.3103Z" fill="#D31A71"/>
+<path d="M26.6497 161.495C41.368 161.495 53.2995 149.561 53.2995 134.84C53.2995 120.118 41.368 108.184 26.6497 108.184C11.9315 108.184 0 120.118 0 134.84C0 149.561 11.9315 161.495 26.6497 161.495Z" fill="#D31A71"/>
+<path d="M323.35 241.745C338.069 241.745 350 229.811 350 215.089C350 200.368 338.069 188.434 323.35 188.434C308.632 188.434 296.701 200.368 296.701 215.089C296.701 229.811 308.632 241.745 323.35 241.745Z" fill="#D31A71"/>
+<path d="M215.117 350C229.835 350 241.766 338.066 241.766 323.345C241.766 308.624 229.835 296.69 215.117 296.69C200.398 296.69 188.467 308.624 188.467 323.345C188.467 338.066 200.398 350 215.117 350Z" fill="#D31A71"/>
+<path d="M215.117 330.453C212.843 330.453 210.604 329.351 209.218 327.325L129.909 209.758L22.8123 140.846C19.5078 138.713 18.5484 134.306 20.6804 131.037C22.8123 127.732 27.1829 126.772 30.4875 128.904L138.792 198.599C139.609 199.132 140.284 199.807 140.853 200.589L220.98 319.364C223.183 322.634 222.33 327.041 219.061 329.244C217.853 330.062 216.467 330.453 215.081 330.453H215.117Z" fill="#D31A71"/>
+</g>
+<defs><clipPath id="clip_pg"><rect width="350" height="350" fill="white"/></clipPath></defs>
+</svg>
+    <div class="cover-logo-text">Polar<span>Grid</span></div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-eyebrow">Data Room &mdash; June 2026</div>
+    <div class="cover-title">The PolarGrid<br><span>Software Moat</span></div>
+    <div class="cover-subtitle">How usage compounds into routing intelligence, and why the fleet that carries the traffic owns the map that cannot be replicated.</div>
+  </div>
+
+  <div class="cover-footer">
+    <div class="cover-footer-label">Confidential &mdash; For Investor Use Only</div>
+    <div class="cover-footer-date">June 2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 2: THESIS                                 -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-label">Thesis</div>
+
+  <div class="page-title">Infrastructure is the base.<br>Software is the leverage.</div>
+  <div class="page-subtitle">Why usage compounds value in ways capital cannot replicate.</div>
+
+  <div class="thesis-callout">
+    <p>PolarGrid runs physical inference infrastructure: GPUs, edge nodes, and data center hardware. That base scales the way infrastructure always has, with capital. Add a node, add cost, add roughly proportional capacity.</p>
+    <p>What changes the shape of the business is the layer above it. <strong>The software that decides where every request runs improves with usage.</strong> Capital adds nodes; usage compounds the software, making it better, cheaper per request, and harder to leave the more traffic flows through it, at close to zero marginal cost.</p>
+    <p>This is a flywheel: traffic builds a map of real-world latency and demand, the map sharpens routing, sharper routing improves performance, and better performance brings more traffic. <strong>As the network grows, software's share of the value rises with scale.</strong></p>
+  </div>
+
+  <div class="body-text">
+    The routing layer and its telemetry pipeline are <span class="highlight-pill">deployed today</span> serving production traffic across multiple regions. At almost every other provider, inference is bought as a single regional endpoint the customer pins by hand, even though region choice is one of the largest latency levers in the stack: <strong>10 to 30 ms round-trip</strong> to the North American population from an edge node, versus <strong>60 to 150 ms</strong> from a single us-east-1 region.
+  </div>
+
+  <div class="body-text">
+    Automatic routing across a fleet the provider owns, which is what PolarGrid already does, is rare in a market built on static endpoints and third-party aggregators that dispatch across other providers' APIs.
+  </div>
+
+  <div class="page-footer">
+    <span>The PolarGrid Software Moat</span>
+    <span>Confidential &mdash; For Investor Use Only &middot; June 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 3: VALUE CAPTURE                          -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-label">Value Capture</div>
+
+  <div class="page-title">Where the software captures value</div>
+  <div class="page-subtitle">Two parts of the software layer turn usage into value the infrastructure underneath cannot capture on its own.</div>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Where value is held</h3>
+      <p>PolarGrid's edge gateway is <strong>model-aware</strong>. A Model Registry maps each request to a node that has the right model loaded and the right backend for it, across vLLM and custom Python runtimes with TensorRT-LLM supported, spanning language, speech, vision, and multimodal.</p>
+      <br/>
+      <p>A customer builds against the abstraction. Their workloads, model formats, and routing policies run through it, and moving off means rebuilding a serving layer. <strong>That is where pricing power and retention live: in the software layer.</strong></p>
+    </div>
+
+    <div class="card">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Where per-request economics improve</h3>
+      <p>The routing layer decides where each request runs, and as it accumulates data it makes that decision better. Each turn of the flywheel lowers latency and cost per token and raises utilization on the same fleet.</p>
+      <br/>
+      <p>The customer feels this as <strong>time to first token (text)</strong> and <strong>time to first audio (voice)</strong>: the sharper the map, the lower the p50 and p99 the same hardware delivers. <strong>The infrastructure spend is largely fixed; the value extracted from it rises with the quality of the routing.</strong></p>
+    </div>
+  </div>
+
+  <div class="body-text">
+    Each year the same nodes do more, and that gain is captured in the software, not the hardware. The per-request economics compound in the software layer without requiring additional capital spend on the infrastructure layer.
+  </div>
+
+  <div class="page-footer">
+    <span>The PolarGrid Software Moat</span>
+    <span>Confidential &mdash; For Investor Use Only &middot; June 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 4: DURABILITY / FLYWHEEL                  -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-label">Durability</div>
+
+  <div class="page-title">Why the lead compounds</div>
+  <div class="page-subtitle">The flywheel is not a framework. It is the mechanism by which every request widens the gap.</div>
+
+  <div class="flywheel">
+    <div class="flywheel-step">
+      <div class="flywheel-num">Step 01</div>
+      <h3>Traffic builds the map</h3>
+      <p>Every routing decision is logged, capturing region, distance, handler latency, and queue depth, feeding a real-time pipeline. As request volume grows this becomes a continuously refreshed map of real-world inference latency and demand: which corridors congest, how specific models behave under load on specific hardware, where the next request will originate.</p>
+    </div>
+    <div class="flywheel-step">
+      <div class="flywheel-num">Step 02</div>
+      <h3>The map sharpens routing</h3>
+      <p>Today the router is model-aware, load-aware, and geo-aware. Workload profiling is the next layer: classify each request by modality, latency class, length, and session before placement, then apply node selection, KV-cache session affinity, and SLA tier to it. The inputs are already captured in per-request telemetry.</p>
+    </div>
+    <div class="flywheel-step">
+      <div class="flywheel-num">Step 03</div>
+      <h3>Sharper routing lowers latency</h3>
+      <p>Better placement decisions reduce time to first token and time to first audio on the same physical fleet. The customer experiences this as performance improvement. The provider captures it as higher utilization, lower cost per request, and stronger retention without increasing infrastructure spend.</p>
+    </div>
+    <div class="flywheel-step">
+      <div class="flywheel-num">Step 04</div>
+      <h3>Better performance brings more traffic</h3>
+      <p>More traffic sharpens the map further. A competitor chases a target that pulls further ahead the longer the network runs. <strong>The map cannot be bought, licensed, or reverse-engineered. The only way to build it is to carry the traffic.</strong></p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>The PolarGrid Software Moat</span>
+    <span>Confidential &mdash; For Investor Use Only &middot; June 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 5: FORWARD VIEW                           -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-label">Forward View</div>
+
+  <div class="page-title">Deepening the layer</div>
+  <div class="page-subtitle">Every item below extends something already running in production. Each tightens one stage of the flywheel. Prioritization follows customer demand.</div>
+
+  <table class="capability-table">
+    <thead>
+      <tr>
+        <th style="width:30%">Capability</th>
+        <th style="width:32%">Builds on (live today)</th>
+        <th style="width:20%">Loop stage</th>
+        <th style="width:18%">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Predictive, demand-aware routing</td>
+        <td>Decision logging + analytics pipeline</td>
+        <td><span class="tag tag-loop">map &rarr; routing</span></td>
+        <td><span class="tag tag-live">Live</span></td>
+      </tr>
+      <tr>
+        <td>Session-affinity (KV-cache) routing</td>
+        <td>Queue-depth-aware node selection</td>
+        <td><span class="tag tag-loop">routing &rarr; performance</span></td>
+        <td>Next</td>
+      </tr>
+      <tr>
+        <td>Anomaly-aware failover</td>
+        <td>Health-check service + telemetry</td>
+        <td><span class="tag tag-loop">map &rarr; routing</span></td>
+        <td>Next</td>
+      </tr>
+      <tr>
+        <td>Dynamic model placement</td>
+        <td>Model Registry + multi-backend serving</td>
+        <td><span class="tag tag-loop">performance &rarr; traffic</span></td>
+        <td>Planned</td>
+      </tr>
+      <tr>
+        <td>SLA-tiered routing classes</td>
+        <td>Server-side routing policy + telemetry</td>
+        <td><span class="tag tag-loop">routing &rarr; performance</span></td>
+        <td>Planned</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="body-text">
+    Each capability listed above is grounded in infrastructure that is already instrumented and running. The inputs, the telemetry, the routing hooks, are already captured. What remains is applying accumulated data to progressively tighter placement decisions.
+  </div>
+
+  <div class="page-footer">
+    <span>The PolarGrid Software Moat</span>
+    <span>Confidential &mdash; For Investor Use Only &middot; June 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- PAGE 6: STRATEGIC RELEVANCE                    -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="section-label">Strategic Relevance</div>
+
+  <div class="page-title">Why the value accrues to the software</div>
+  <div class="page-subtitle">The reasonable challenge to any software-over-infrastructure thesis is that the capacity owner underneath simply absorbs the layer.</div>
+
+  <div class="strategy-block">
+    <h3>What can be matched</h3>
+    <p>A competitor can match the capacity, because that is the linear, capital part. They can add GPU nodes, negotiate similar hardware contracts, and build out regional presence. That is finite, reproducible, and purchasable.</p>
+  </div>
+
+  <div class="strategy-block">
+    <h3>What cannot be added</h3>
+    <p>What they cannot add is the <strong>accumulated usage the routing intelligence learns from</strong>, or the <strong>installed workloads already running through the abstraction</strong>. Those are the non-linear parts, and they compound. Every customer who builds against the Model Registry, every inference workload that runs through the gateway, and every routing decision that lands in the telemetry pipeline increases the cost of switching and widens the gap in routing quality.</p>
+  </div>
+
+  <div class="strategy-block">
+    <h3>The distinction that holds the moat</h3>
+    <p>Routing across other providers' APIs already exists. <strong>Routing across an edge-GPU fleet PolarGrid owns, scored on a latency and demand map only owned traffic can build, does not.</strong> The fleet earns the right to collect the data; the data is what compounds.</p>
+    <p style="margin-top:12px;">So as the network scales, the hardware stays a commodity others can rent, while the software layer captures a growing share of the value and gets harder to copy with every request it handles.</p>
+  </div>
+
+  <div class="page-footer">
+    <span>The PolarGrid Software Moat</span>
+    <span>Confidential &mdash; For Investor Use Only &middot; June 2026</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════ -->
+<!-- CLOSING PAGE                                   -->
+<!-- ══════════════════════════════════════════════ -->
+<div class="closing">
+  <div class="cover-logo">
+    <svg width="40" height="40" viewBox="0 0 350 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip_pg)">
+<path d="M207.477 331.839C204.244 331.839 200.975 331.412 197.777 330.56L78.6346 298.076C65.7006 294.593 55.4671 284.393 51.9848 271.385L19.5077 152.29C16.0254 139.282 19.7564 125.35 29.2437 115.826L115.873 29.1785C125.36 19.6893 139.325 15.9575 152.294 19.4405L271.437 51.9242C284.371 55.4072 294.604 65.6072 298.086 78.6149L330.564 197.71C334.046 210.718 330.315 224.65 320.827 234.174L234.198 320.821C227.056 327.965 217.355 331.839 207.477 331.839ZM142.558 32.4127C136.411 32.4127 130.371 34.8294 125.929 39.2719L39.2996 125.883C33.4011 131.783 31.0559 140.49 33.2234 148.594L65.7006 267.689C67.8681 275.828 74.264 282.189 82.33 284.357L201.472 316.841C209.503 319.009 218.208 316.663 224.142 310.764L310.736 224.152C316.635 218.217 318.98 209.545 316.812 201.442L284.335 82.3467C282.168 74.208 275.772 67.8463 267.706 65.6783L148.564 33.1946C146.574 32.6614 144.548 32.4127 142.523 32.4127H142.558Z" fill="#D31A71"/>
+<path d="M323.35 222.197L134.563 211.678C130.797 211.464 127.848 208.337 127.848 204.569V26.6552C127.848 22.7457 131.046 19.5471 134.954 19.5471C138.863 19.5471 142.061 22.7457 142.061 26.6552V197.852L323.741 208.017C327.65 208.23 330.67 211.606 330.457 215.516C330.244 219.283 327.117 222.233 323.35 222.233V222.197Z" fill="#D31A71"/>
+<path d="M66.7667 290.399C65.1322 290.399 63.4621 289.83 62.1119 288.658C59.1626 286.099 58.8073 281.585 61.4012 278.635L129.625 199.878C129.802 199.7 129.98 199.487 130.158 199.31L278.472 61.4846C281.35 58.819 285.828 58.9612 288.528 61.84C291.229 64.7187 291.051 69.1968 288.173 71.8978L140.142 209.438L72.2032 287.911C70.7819 289.546 68.8276 290.364 66.8378 290.364L66.7667 290.399Z" fill="#D31A71"/>
+<path d="M134.954 231.225C149.673 231.225 161.604 219.291 161.604 204.569C161.604 189.848 149.673 177.914 134.954 177.914C120.236 177.914 108.305 189.848 108.305 204.569C108.305 219.291 120.236 231.225 134.954 231.225Z" fill="#D31A71"/>
+<path d="M66.7665 309.946C81.4847 309.946 93.4162 298.012 93.4162 283.291C93.4162 268.57 81.4847 256.636 66.7665 256.636C52.0482 256.636 40.1167 268.57 40.1167 283.291C40.1167 298.012 52.0482 309.946 66.7665 309.946Z" fill="#D31A71"/>
+<path d="M283.269 93.3997C297.987 93.3997 309.919 81.4658 309.919 66.7445C309.919 52.0233 297.987 40.0894 283.269 40.0894C268.551 40.0894 256.619 52.0233 256.619 66.7445C256.619 81.4658 268.551 93.3997 283.269 93.3997Z" fill="#D31A71"/>
+<path d="M134.954 53.3103C149.673 53.3103 161.604 41.3764 161.604 26.6552C161.604 11.9339 149.673 0 134.954 0C120.236 0 108.305 11.9339 108.305 26.6552C108.305 41.3764 120.236 53.3103 134.954 53.3103Z" fill="#D31A71"/>
+<path d="M26.6497 161.495C41.368 161.495 53.2995 149.561 53.2995 134.84C53.2995 120.118 41.368 108.184 26.6497 108.184C11.9315 108.184 0 120.118 0 134.84C0 149.561 11.9315 161.495 26.6497 161.495Z" fill="#D31A71"/>
+<path d="M323.35 241.745C338.069 241.745 350 229.811 350 215.089C350 200.368 338.069 188.434 323.35 188.434C308.632 188.434 296.701 200.368 296.701 215.089C296.701 229.811 308.632 241.745 323.35 241.745Z" fill="#D31A71"/>
+<path d="M215.117 350C229.835 350 241.766 338.066 241.766 323.345C241.766 308.624 229.835 296.69 215.117 296.69C200.398 296.69 188.467 308.624 188.467 323.345C188.467 338.066 200.398 350 215.117 350Z" fill="#D31A71"/>
+<path d="M215.117 330.453C212.843 330.453 210.604 329.351 209.218 327.325L129.909 209.758L22.8123 140.846C19.5078 138.713 18.5484 134.306 20.6804 131.037C22.8123 127.732 27.1829 126.772 30.4875 128.904L138.792 198.599C139.609 199.132 140.284 199.807 140.853 200.589L220.98 319.364C223.183 322.634 222.33 327.041 219.061 329.244C217.853 330.062 216.467 330.453 215.081 330.453H215.117Z" fill="#D31A71"/>
+</g>
+<defs><clipPath id="clip_pg"><rect width="350" height="350" fill="white"/></clipPath></defs>
+</svg>
+    <div class="cover-logo-text">Polar<span>Grid</span></div>
+  </div>
+
+  <div class="closing-main">
+    <div class="closing-quote">The fleet earns the data.<br><span>The data is what compounds.</span></div>
+    <div class="closing-sub">Every request handled is a routing decision logged. Every decision logged sharpens the map. The map is the moat, and the only way to build it is to carry the traffic.</div>
+
+    <div class="closing-contact">
+      <div class="closing-contact-label">Contact</div>
+      <div class="closing-contact-name">Rade Kovacevic</div>
+      <div class="closing-contact-email">rade@polargrid.ai</div>
+    </div>
+  </div>
+
+  <div class="closing-footer">
+    <span>Confidential &mdash; For Investor Use Only</span>
+    <span>polargrid.ai &middot; June 2026</span>
+  </div>
+</div>
+
+</body>
+</html>

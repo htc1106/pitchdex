@@ -1,0 +1,179 @@
+Chat Transcript: B300 Cluster Discussion
+Group: 曹越, 张捷.zigzag, Hans, LLZ, Henry (5)
+
+────────────────────────────────────────
+
+[10:45] — 曹越 invited Henry to the group
+
+Hans: Nice to meet you, Henry. I'm Hans.
+
+曹越: Hi Henry, Zheng Zhang @张捷.zigzag is the cofounder of our company, Hans is responsible for buying computing resources for our company, Lingzhi is the leader for our model team.
+
+张捷.zigzag: @Henry Nice to meet you.
+
+Henry: Nice to meet you all, I'm cofounder at PolarGrid.
+
+Henry: We have 2 data centers that can handle 1000+ B300 units, Chicago and Washington State (maybe Toronto).
+
+Henry: Cluster this size we have to do 3-5 year commitment with a downpay.
+
+Henry: If you can provide detailed specs, I can give you a quick ballpark pricing today and work on the detailed config over next few days.
+
+────────────────────────────────────────
+
+[10:52]
+
+Hans: Hi Henry, just to clarify a few points:
+Are the Chicago and Washington State data centers ready now, or will they be ready soon? If we place an order in the near term, would they be able to support B300 deployments?
+Also, when you mentioned "1000+ B300 units," does that mean each data center can support 1000+ units, or the total capacity across both data centers?
+And just to confirm, by "1000+ units," do you mean 1000+ GPUs/cards, or 1000+ servers/nodes? Typically one server/node has 8 GPUs, so I want to make sure I understand correctly.
+
+Henry: Ready now, our limit from now to EOY power is 1.3-1.5MW in WA. Tier 3 facility.
+
+Henry: We can provide single cluster bare metal in one site for 144 node B300 cluster, which is 1152 units of GPUs.
+
+────────────────────────────────────────
+
+[10:58]
+
+Henry: For Washington site, depending on what you are doing, we can also look into direct PNI/XC with the big 3 Chinese ISPs for this scale. China Mobile, China Telecom, and China Unicom.
+
+Henry: OEM is likely Supermicros.
+
+────────────────────────────────────────
+
+[22:13]
+
+Henry: @Hans we can provide a 144 node B300 cluster, with InfiniBand, for 3 year term at $4.5/gpu/hr with 20% downpay.
+
+Henry: Available this year in both Chicago or Washington State.
+
+────────────────────────────────────────
+
+[22:35]
+
+Hans: Thanks for the details. Could you please clarify the expected delivery timeline? If we sign the agreement and make the 20% down payment, how long would it typically take before the 144-node B300 cluster is delivered, deployed, and available for our use? Also, regarding the 20% down payment, would it be held in an escrow / jointly controlled account, or paid directly to PolarGrid? Could you share the proposed payment structure?
+
+Henry: Deployment is very quick. We move fast. Assuming Supermicro is the OEM, they are currently giving 6-8 weeks lead time.
+
+Henry: I can send over our standard payment terms.
+
+────────────────────────────────────────
+
+[22:40]
+
+Henry: Timeline we should be good for 8 weeks from signing but let me confirm for sure. We have a cage in the Washington site that is good to go now. You will be 2nd or 3rd deployment there for us.
+
+Hans: My understanding is that the 6–8 weeks is mainly the typical hardware lead time from the OEM. Could you also clarify how long the networking / cluster setup would take after the hardware arrives, including InfiniBand networking, cabling, switch configuration, testing, and burn-in? In other words, from the time we sign the agreement and place the order / make the down payment, what is the expected total timeline until the 144-node B300 cluster is fully deployed and ready for our production use? Is 8 weeks from signing the expected end-to-end timeline, or should we expect additional time after hardware delivery? Also, regarding the cage at the Washington site, could you confirm whether the 144 nodes would use up the full available capacity in that dedicated cage? If we need to expand beyond 144 nodes later, would there be room to add more nodes in the same cage / same site, or would that require a separate cage or another site?
+
+────────────────────────────────────────
+
+[22:46]
+
+Henry: I would say 8-12 weeks depending on your requirements. I assume IB is required given above. The more specific on other specs you can provide to me now, the better I can give you our timeline. Hardware requirement, storage node, network, etc.. Include instructions for burn in test if any.
+
+Henry: 144 node would not take up full available capacity. There will be room for expansion next year. We can work on the timeline together.
+
+────────────────────────────────────────
+
+[22:52]
+
+Hans: This sounds good overall. The key point for us now is to review the payment structure and make sure there is a reasonable mechanism to protect the down payment / our funds. Could you please send over your standard payment terms when convenient? In particular, we would like to understand whether the 20% down payment can be held in escrow or a jointly controlled account, and released based on agreed milestones. Also, for our internal approval process, we would like to understand the remedies around delivery risk. If the cluster is delayed beyond the agreed delivery timeline, would there be any service credits, fee reductions, liquidated damages, or other compensation? In addition, if the cluster is still not delivered within an agreed grace period after the committed delivery date, would we have the right to terminate the agreement immediately and receive a full refund of the down payment, plus any additional compensation? And in the unlikely event that the cluster ultimately cannot be delivered to us, beyond refunding the down payment, would there be any additional compensation mechanism?
+
+Henry: It's a big amount, we can discuss downpay terms based on what you are comfortable with and include in the MSA. Can likely do 50% upon signing and 50% in escrow upon milestones.
+
+Henry: We have standard SLA we include in the MSA. I can send that over as well. My legal team works in EST, will have to get them to update and send over the template when they are at their desk tomorrow.
+
+────────────────────────────────────────
+
+[22:58]
+
+Henry: Re: if the cluster is still not delivered within an agreed grace period after the committed delivery date, would we have the right to terminate the agreement immediately and receive a full refund of the down payment, plus any additional compensation? — I can see if I can pass on the risk to OEM.
+
+Henry: [shared wa-spokane-data-center2-spec-sheet.pdf — 568.8KB]
+
+Henry: Here is the data center spec sheet, btw.
+
+────────────────────────────────────────
+
+[23:04]
+
+Hans: Just to clarify our preferred escrow structure: the funds placed in escrow would not only be "protected" — they should not be drawn, released, pledged, or otherwise used before the machines are delivered, deployed, and accepted by us. The structure we have seen in similar transactions is that the provider can use our LOI / committed order, together with the escrowed funds as evidence of committed demand, to support financing for the remaining portion of the upfront cost. That financing should be sufficient to cover the OEM purchase and deployment costs before acceptance. From our side, we would prefer that the escrow funds remain untouched until we actually receive and accept the cluster. This is important for our internal approval and fund safety. Would PolarGrid be open to structuring it this way? If yes, please have your legal team reflect this clearly in the MSA / escrow agreement, including the release conditions and acceptance criteria.
+
+Henry: Sounds reasonable to me, we can work something like this into MSA, we do require a portion of the downpay upfront.
+
+Henry: But will work on the detail with my finance and legal.
+
+Hans: Understood. That sounds workable in principle. Could you please clarify what portion of the down payment would need to be paid upfront, and what portion can remain in escrow until delivery, deployment, and acceptance? From our side, given the size of the transaction, we would prefer to minimize the upfront released amount and keep the majority of the down payment in escrow until acceptance. We can discuss a reasonable structure that works for both sides and reflect it clearly in the MSA / escrow agreement.
+
+Henry: Let me check with finance and get back to you. I am more involved in technical detail over business detail.
+
+Henry: Also do you have specs you can share with me? Or should we propose a standard configuration to your team to review?
+
+────────────────────────────────────────
+
+[23:18]
+
+Hans: For the specs, here are our initial requirements for the 144-node B300 cluster:
+1. CPU: Both Intel and AMD are acceptable. We are open to your recommended standard configuration.
+2. Memory: 2TB, 3TB, or 4TB per node are all acceptable. Please propose the most reasonable option based on availability, cost, and deployment timeline.
+3. Network: InfiniBand networking is required. For the IB fabric, we would like a 1:1 convergence / non-oversubscribed design if possible.
+4. Storage:
+   a) GPFS: around 300TB
+   b) Object storage: around 3PB
+Could you please propose a standard configuration based on the above, including compute node specs, GPU configuration, CPU, memory, GPFS / object storage design, storage nodes if needed, IB/network topology, switches, rack/power assumptions, and burn-in / acceptance testing process? It would also be helpful if you could indicate any cost or timeline differences between the GPFS and object storage options.
+
+Hans: Hi Henry, one more thing for our internal approval process: we will need some due diligence materials around the data center capacity and procurement capability. Specifically, could you please provide supporting documents showing:
+1. Data center / cage usage rights: Evidence that PolarGrid has the right to use the Washington site / cage for at least the 3-year term, such as a lease agreement, colocation agreement, MSA, LOA, or other equivalent documentation.
+2. Power, rack, and capacity availability: Evidence that the site has sufficient committed power, cooling, rack/cage capacity, and network capacity to support the proposed 144-node B300 cluster, with room for future expansion if applicable.
+3. Server / GPU procurement capability: Evidence that PolarGrid has the ability and channel access to procure the required B300 servers from Supermicro or other qualified OEMs / authorized distributors, including any OEM/distributor relationship, quotation, allocation confirmation, purchase order history, or similar supporting materials.
+We understand some documents may be sensitive, so redacted versions are fine. If needed, we can also sign an NDA before reviewing the detailed DD materials. These materials will be very helpful for our legal, finance, and infrastructure teams to complete the internal review.
+
+────────────────────────────────────────
+
+[23:26]
+
+Henry: @Hans of course. I got my homework now. Give me a couple of days to build out the config, and go over your business requirement with my finance and legal team.
+
+Henry: Are you guys working in Beijing Time or North American Time?
+
+Hans: Thanks Henry, sounds good. Appreciate your help. We look forward to reviewing the proposed configuration, payment structure, MSA/SLA terms, and DD materials once ready.
+
+Hans: Mostly Beijing Time, but we can also accommodate North American Time for important discussions or meetings.
+
+Henry: Sounds good, we are all Canadians here, but we do a lot of work during Beijing Time work hours. I am Canadian-born Chinese, rest of the team are just Canadians. Back to you soon.
+
+────────────────────────────────────────
+End of transcript
+
+
+════════════════════════════════════════
+TO-DO CHECKLIST
+🔴 Urgent / deal-blocking
+🟡 Important, action needed soon
+🟢 Lower priority / straightforward
+════════════════════════════════════════
+
+TECHNICAL
+🔴 [ ] Build out full 144-node B300 cluster config proposal (CPU, memory, IB topology, switches, rack/power)
+🔴 [ ] Spec GPFS (~300TB) and object storage (~3PB) options with cost/timeline differences
+🔴 [ ] Confirm 8-week delivery timeline with ops team
+🟡 [ ] Clarify PCIe NVMe vs U.2 NVMe for cache with Eric, get final chassis model number for storage nodes
+
+LEGAL & FINANCE
+🔴 [ ] Have legal team send over MSA template
+🔴 [ ] Have legal include escrow structure: majority held untouched until delivery + acceptance
+🔴 [ ] Include SLA with delivery delay remedies (credits, liquidated damages, termination + refund rights)
+🟡 [ ] Confirm with finance what % of downpay must be released upfront vs held in escrow
+🟡 [ ] Explore passing OEM delivery risk to Supermicro in the contract
+
+DUE DILIGENCE (for Hans's team)
+🔴 [ ] Provide proof of cage/colocation rights at WA site for 3-year term (lease, colo MSA, LOA)
+🔴 [ ] Provide power/cooling/rack capacity evidence for 144-node cluster + expansion room
+🟡 [ ] Provide Supermicro OEM/distributor relationship evidence (quote, allocation, PO history)
+🟢 [ ] Offer NDA if needed before sharing sensitive DD docs
+
+OTHER
+🔴 [ ] Send payment terms document to Hans
+🟡 [ ] Follow up with Eric on alternative EPYC storage node spec (for the other deal with Joe)
+🟡 [ ] Respond to Joe's buyer with updated chassis model once Eric confirms

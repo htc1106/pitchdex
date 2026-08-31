@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cactus Marketing - B2B AI SaaS One-Pager</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  /* HERO */
+  .hero {
+    background: #0a0a0a;
+    padding: 48px 56px 36px;
+    text-align: center;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .logo {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero h1 span { color: #22c55e; }
+
+  .hero .tagline {
+    font-size: 13px;
+    color: #666;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 32px;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-bottom: 0;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 28px;
+    font-weight: 800;
+    color: #22c55e;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+
+  /* BANNER */
+  .banner {
+    background: #111;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 10px 56px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .banner-item {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #555;
+    text-transform: uppercase;
+  }
+
+  .banner-sep {
+    color: #2a2a2a;
+    font-size: 10px;
+  }
+
+  /* MAIN GRID */
+  .main {
+    padding: 0 56px 48px;
+  }
+
+  /* WHO WE ARE */
+  .who-section {
+    padding: 40px 0 32px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #22c55e;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .who-section h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+
+  .who-section p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+
+  /* WHAT WE DO */
+  .services-section {
+    padding: 36px 0 32px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .services-section > .section-label {
+    margin-bottom: 24px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .services-col {
+    padding-right: 32px;
+  }
+
+  .services-col:last-child {
+    padding-right: 0;
+    padding-left: 32px;
+    border-left: 1px solid #1a1a1a;
+  }
+
+  .col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .col-label span {
+    color: #22c55e;
+    margin-left: 4px;
+  }
+
+  .service-item {
+    margin-bottom: 18px;
+  }
+
+  .service-item h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .service-item p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* OUTCOMES */
+  .outcomes-section {
+    padding: 36px 0 32px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .outcomes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .outcome-card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .outcome-card .tier-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #22c55e;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .outcome-card .tier-sub {
+    font-size: 10px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .outcome-stat {
+    margin-bottom: 10px;
+  }
+
+  .outcome-stat .num {
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+  }
+
+  .outcome-stat .desc {
+    font-size: 10px;
+    color: #555;
+    line-height: 1.4;
+    margin-top: 2px;
+  }
+
+  .outcome-card .note {
+    font-size: 10px;
+    color: #444;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #1a1a1a;
+    line-height: 1.5;
+  }
+
+  /* 90 DAY */
+  .plan-section {
+    padding: 36px 0 32px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .plan-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .plan-card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .plan-card .day-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #22c55e;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .plan-card h4 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .plan-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .plan-card ul li {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 6px;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .plan-card ul li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-size: 7px;
+    top: 2px;
+  }
+
+  /* PRICING */
+  .pricing-section {
+    padding: 36px 0 32px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .price-card {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+    padding: 24px;
+    position: relative;
+  }
+
+  .price-card.featured {
+    border-color: #22c55e;
+    background: #0d1a12;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #22c55e;
+    color: #000;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .price-tier {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #22c55e;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .price-amount {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .price-period {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .price-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+
+  .price-card ul li {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .price-card ul li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-size: 9px;
+  }
+
+  .price-tag {
+    font-size: 11px;
+    color: #555;
+    font-style: italic;
+    padding-top: 12px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  /* FOOTER */
+  .footer-stats {
+    background: #111;
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .footer-stat {
+    text-align: center;
+  }
+
+  .footer-stat .num {
+    font-size: 20px;
+    font-weight: 800;
+    color: #22c55e;
+  }
+
+  .footer-stat .lbl {
+    font-size: 10px;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 2px;
+  }
+
+  .testimonial {
+    padding: 36px 56px;
+    border-bottom: 1px solid #1a1a1a;
+    text-align: center;
+  }
+
+  .testimonial p {
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 620px;
+    margin: 0 auto 14px;
+  }
+
+  .testimonial .author {
+    font-size: 11px;
+    color: #555;
+    font-style: normal;
+  }
+
+  .testimonial .stars {
+    color: #22c55e;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .cta {
+    background: #0d1a12;
+    border-top: 1px solid #22c55e22;
+    padding: 40px 56px;
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  .cta p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: #22c55e;
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 12px 28px;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .footer-bottom {
+    background: #0a0a0a;
+    padding: 16px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #111;
+  }
+
+  .footer-bottom .brand {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #444;
+    text-transform: uppercase;
+  }
+
+  .footer-bottom .url {
+    font-size: 11px;
+    color: #444;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo">🌵 Cactus Marketing</div>
+  <h1>Full-Stack Growth for <span>B2B AI SaaS Startups</span></h1>
+  <div class="tagline">Inbound + Outbound · AI-Native · Embedded Team · No Coordination Overhead</div>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-num">60+</div>
+      <div class="stat-label">Startups Served</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">12</div>
+      <div class="stat-label">Exits</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$3B+</div>
+      <div class="stat-label">Client Valuations</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5.0★</div>
+      <div class="stat-label">G2 & Google</div>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <span class="banner-item">AI-Native Agency</span>
+  <span class="banner-sep">|</span>
+  <span class="banner-item">SEO + Paid + Outbound</span>
+  <span class="banner-sep">|</span>
+  <span class="banner-item">LinkedIn + Email + Calls</span>
+  <span class="banner-sep">|</span>
+  <span class="banner-item">Embedded Growth Team</span>
+</div>
+
+<div class="main">
+
+  <!-- WHO WE ARE -->
+  <div class="who-section">
+    <div class="section-label">Who We Are</div>
+    <h2>We don't brief you on decks. We build your pipeline.</h2>
+    <p>Cactus embeds with B2B AI SaaS startups as a full-stack growth team, running inbound and outbound under one roof. No agency handoffs. No vanity metrics. Just qualified pipeline delivered to your calendar. We rebuilt everything from the ground up with AI: outbound, inbound, content and CRM workflows. Enterprise-grade output at startup speed.</p>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <div class="services-section">
+    <div class="section-label">What We Do</div>
+    <div class="services-grid">
+      <div class="services-col">
+        <div class="col-label">INBOUND <span>GET FOUND & CONVERT</span></div>
+        <div class="service-item">
+          <h4>SEO & Content Marketing</h4>
+          <p>Compounding organic traffic from buyers actively searching, optimized for Google, ChatGPT, Perplexity and AI search.</p>
+        </div>
+        <div class="service-item">
+          <h4>Paid Ads (Google & LinkedIn)</h4>
+          <p>Precision B2B SaaS campaigns targeting decision-makers by title, company, and intent signal. Built to drive demos, not clicks.</p>
+        </div>
+        <div class="service-item">
+          <h4>Demand Generation</h4>
+          <p>Multi-channel demand gen across content, paid, email and partnerships. Architected to build lasting pipeline, not spikes.</p>
+        </div>
+      </div>
+      <div class="services-col">
+        <div class="col-label">OUTBOUND <span>BUILD & FILL PIPELINE</span></div>
+        <div class="service-item">
+          <h4>SDR & Cold Calling</h4>
+          <p>Human SDRs powered by AI. ICP research, real conversations and qualified meetings booked to your calendar.</p>
+        </div>
+        <div class="service-item">
+          <h4>Email Outreach & Sequencing</h4>
+          <p>AI-personalized cold email at scale. Deliverability, copy and timing all handled. Replies go straight to your team.</p>
+        </div>
+        <div class="service-item">
+          <h4>LinkedIn & Lead Gen</h4>
+          <p>Targeted LinkedIn outreach, connection sequencing, and verified lead lists pushed directly into your CRM.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTCOMES -->
+  <div class="outcomes-section">
+    <div class="section-label">Expected Outcomes by Tier</div>
+    <div class="outcomes-grid">
+      <div class="outcome-card">
+        <div class="tier-label">Starter</div>
+        <div class="tier-sub">Outbound Only</div>
+        <div class="outcome-stat">
+          <div class="num">8–10</div>
+          <div class="desc">Qualified appointments/mo by month 2–3 as sequences warm up</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="num">3,000+</div>
+          <div class="desc">New qualified leads/mo — 100 calls/day, email + LinkedIn combined</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="num">~3%</div>
+          <div class="desc">Avg. reply rate email + LinkedIn combined</div>
+        </div>
+        <div class="note">Email + LinkedIn + calls + SEO from day one</div>
+      </div>
+      <div class="outcome-card">
+        <div class="tier-label">Growth</div>
+        <div class="tier-sub">Full Stack</div>
+        <div class="outcome-stat">
+          <div class="num">15–25</div>
+          <div class="desc">Qualified appointments/mo inbound + outbound combined</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="num">6,000+</div>
+          <div class="desc">New qualified leads/mo — 200 calls/day + email, LinkedIn, paid ads</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="num">2–5x</div>
+          <div class="desc">Inbound demo lift vs. pre-engagement baseline</div>
+        </div>
+        <div class="note">Scaled call volume + paid ads + deeper content engine</div>
+      </div>
+      <div class="outcome-card">
+        <div class="tier-label">Scale</div>
+        <div class="tier-sub">Enterprise Growth</div>
+        <div class="outcome-stat">
+          <div class="num">30–50</div>
+          <div class="desc">Qualified appointments/mo — all channels fully optimized</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="num">9,000+</div>
+          <div class="desc">New qualified leads/mo — 300+ calls/day, full-stack multi-channel</div>
+        </div>
+        <div class="outcome-stat">
+          <div class="num">&lt;60</div>
+          <div class="desc">Days to full pipeline from kickoff to consistent deal flow</div>
+        </div>
+        <div class="note">Maximum volume across every channel with CMO oversight</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 90-DAY PLAN -->
+  <div class="plan-section">
+    <div class="section-label">30–60–90 Day Growth Plan</div>
+    <div class="plan-grid">
+      <div class="plan-card">
+        <div class="day-label">Days 1–30</div>
+        <h4>Foundation</h4>
+        <ul>
+          <li>ICP & buyer persona mapping</li>
+          <li>GTM positioning & messaging audit</li>
+          <li>SEO baseline audit + quick wins</li>
+          <li>Outbound sequences drafted & live</li>
+          <li>CRM setup & lead tracking configured</li>
+          <li>First LinkedIn + email campaigns launched</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <div class="day-label">Days 31–60</div>
+        <h4>Traction</h4>
+        <ul>
+          <li>First qualified meetings delivered</li>
+          <li>Paid ads launched (Google/LinkedIn)</li>
+          <li>SEO content engine publishing</li>
+          <li>Outbound sequences A/B tested & refined</li>
+          <li>SDR calling motion fully active</li>
+          <li>Weekly reporting & pipeline review</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <div class="day-label">Days 61–90</div>
+        <h4>Scale</h4>
+        <ul>
+          <li>Pipeline velocity optimization</li>
+          <li>Top-of-funnel content compounding</li>
+          <li>Channel performance reallocation</li>
+          <li>Retargeting & nurture sequences active</li>
+          <li>Account expansion volumes added</li>
+          <li>Q2 roadmap & scaling plan delivered</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pricing-section">
+    <div class="section-label">Pricing</div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$3,000</div>
+        <div class="price-period">USD / month</div>
+        <ul>
+          <li>Email + LinkedIn + cold calling</li>
+          <li>SEO foundation + content</li>
+          <li>100 calls/day (~3,000 leads/mo)</li>
+          <li>ICP research & targeting</li>
+          <li>CRM integration, reporting + bi-weekly calls</li>
+        </ul>
+        <div class="price-tag">8–10 qualified appts/mo · Early-stage validation</div>
+      </div>
+      <div class="price-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-amount">$5,500</div>
+        <div class="price-period">USD / month</div>
+        <ul>
+          <li>Email + LinkedIn + cold calling (scaled)</li>
+          <li>SEO + content (6 articles/mo)</li>
+          <li>200 calls/day (~6,000 leads/mo)</li>
+          <li>Paid ads (Google + LinkedIn)</li>
+          <li>Dedicated account manager + weekly calls</li>
+          <li>Demand gen + retargeting sequences</li>
+        </ul>
+        <div class="price-tag">15–25 qualified appts/mo · Consistent pipeline</div>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Scale</div>
+        <div class="price-amount">$9,000+</div>
+        <div class="price-period">USD / month</div>
+        <ul>
+          <li>Full inbound + outbound stack</li>
+          <li>300+ calls/day (~9,000+ leads/mo)</li>
+          <li>SEO + content (10+ articles/mo)</li>
+          <li>Multi-channel paid ads management</li>
+          <li>Fractional CMO + weekly strategy calls</li>
+          <li>Custom reporting + pipeline forecasting</li>
+        </ul>
+        <div class="price-tag">30–50 qualified appts/mo · Funded team scale</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- FOOTER STATS -->
+<div class="footer-stats">
+  <div class="footer-stat">
+    <div class="num">60+</div>
+    <div class="lbl">B2B Startups</div>
+  </div>
+  <div class="footer-stat">
+    <div class="num">12</div>
+    <div class="lbl">Successful Exits</div>
+  </div>
+  <div class="footer-stat">
+    <div class="num">$3B+</div>
+    <div class="lbl">Client Valuations</div>
+  </div>
+  <div class="footer-stat">
+    <div class="num">5.0★</div>
+    <div class="lbl">G2 Rating</div>
+  </div>
+  <div class="footer-stat">
+    <div class="num">5.0★</div>
+    <div class="lbl">Google Rating</div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial">
+  <div class="stars">★★★★★</div>
+  <p>"We were pre-launch and needed to build real pipeline fast. Cactus embedded with us, built our entire outbound motion from scratch, and drove so many qualified conversations that we had to bring on additional staff just to keep up."</p>
+  <div class="author">Kelly Ryan · Founder, Sapien</div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>Ready to build pipeline that actually converts?</h2>
+  <p>30-minute strategy call. Specific, actionable, no pitch deck.</p>
+  <a class="cta-btn" href="https://cactusmarketing.io">Book a Free Strategy Call →</a>
+</div>
+
+<!-- FOOTER BOTTOM -->
+<div class="footer-bottom">
+  <div class="brand">🌵 Cactus Marketing</div>
+  <div class="url">cactusmarketing.io · Full-Stack Growth · AI-Native · Global</div>
+</div>
+
+</body>
+</html>

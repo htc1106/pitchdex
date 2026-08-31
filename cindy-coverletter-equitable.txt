@@ -1,0 +1,25 @@
+Xinyi Zhao
+Ottawa, ON | 613-219-7118 | zhao0201@algonquinlive.com
+linkedin.com/in/xinyizhao | github.com/XinyiZhao-cloud
+
+July 2, 2026
+
+Hiring Manager
+Equitable Life of Canada
+
+Re: Co-op Student – IT Investment Technology
+
+Dear Hiring Manager,
+
+I am applying for the Co-op Student – IT Investment Technology position at Equitable. I am currently completing my graduate certificate in Cloud Development and Operations at Algonquin College, and I am looking for a co-op term where I can apply my development background to a domain with real operational significance. Financial services IT fits that well.
+
+Most of my hands-on experience has been in cloud-native development. I built a microservices platform on Azure Kubernetes Service from scratch, handling containerization with Docker, CI/CD automation with GitHub Actions, and Kubernetes configuration including StatefulSets and Persistent Volumes for state management. I also built an end-to-end IoT monitoring system that streamed telemetry through Azure IoT Hub and Stream Analytics into a live Node.js dashboard. Both projects required me to work across the full stack and debug integration problems between services, which is where I have learned the most.
+
+I am currently leading a four-person team for my capstone project, a cloud-based billing management system for a real clinical client. I coordinate sprint planning, GitHub workflows, and direct client communication, which has pushed me to think more carefully about how technical decisions translate into things a non-technical stakeholder can understand and work with.
+
+I am drawn to Equitable because of the combination of stability and genuine investment in the people on the team. I would bring solid technical fundamentals, a straightforward approach to problem solving, and a willingness to work through tasks that are unglamorous but important. I would be glad to discuss the role further.
+
+Thank you for your time and consideration.
+
+Sincerely,
+Xinyi Zhao

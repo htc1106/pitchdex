@@ -1,0 +1,25 @@
+Xinyi Zhao
+Ottawa, ON | 613-219-7118 | zhao0201@algonquinlive.com
+linkedin.com/in/xinyizhao | github.com/XinyiZhao-cloud
+
+July 2, 2026
+
+Hiring Manager
+Ross Video
+
+Re: Software Developer Co-op – Ross Research Labs
+
+Dear Hiring Manager,
+
+I am applying for the Software Developer Co-op at Ross Research Labs. A few words about who I am and what I want from this: I am someone who learns best by building things from scratch, breaking them, and figuring out why. The Catena project caught my attention specifically because it is an active open standard with real SDKs, real contributors, and real problems to solve. That is different from most co-op work, and it is exactly the kind of environment I want to be in.
+
+My background is in cloud-native software. I built a five-service microservices platform on Azure Kubernetes Service from the ground up rather than from the provided reference, which meant I spent a lot of time debugging Kubernetes networking, fixing broken deployments, and redesigning things that did not work the first time. I also built a real-time IoT monitoring system using Azure IoT Hub and Stream Analytics, writing the Python telemetry simulator myself and connecting it through to a live Node.js dashboard. I am comfortable with Docker and Kubernetes, JavaScript and Python, gRPC-style service communication, and CI/CD pipelines through GitHub Actions.
+
+I do not have production C++ or Go experience yet, but I pick up languages quickly and I understand the underlying concepts they are built on. I know how to use documentation, forums, and AI tools effectively to get unstuck without spinning in circles. I am also comfortable with the reality the posting describes honestly: that some approaches will not work out and will need to be abandoned for better ones. I have been there during projects and I did not find it discouraging.
+
+The Catena interface work sits at the intersection of open standards, networking, and SDK design, which is genuinely interesting to me. I would like to contribute to something that outlasts a single co-op term.
+
+Thank you for your time.
+
+Sincerely,
+Xinyi Zhao

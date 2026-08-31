@@ -1,0 +1,27 @@
+Xinyi Zhao
+Ottawa, ON | 613-219-7118 | zhao0201@algonquinlive.com
+linkedin.com/in/xinyizhao | github.com/XinyiZhao-cloud
+
+July 2, 2026
+
+Hiring Manager
+TELUS
+
+Re: Engineering & Technology Co-op – Next Gen Networking
+
+Dear Hiring Manager,
+
+I am applying for the Engineering & Technology Co-op – Next Gen Networking position at TELUS. I am currently completing my graduate certificate in Cloud Development and Operations at Algonquin College, and the work TELUS is doing to evolve its network infrastructure toward cloud-native and AI-driven systems is exactly the kind of environment I want to be working in.
+
+My academic projects have given me practical experience with the technologies this role centres on. For one project, I built an end-to-end real-time monitoring system using Azure IoT Hub, Stream Analytics, Cosmos DB, and Azure App Service. I wrote the Python-based telemetry simulator myself, designed the data pipeline to process and assess conditions in real time, and built the Node.js dashboard that surfaced live results. It was a full-stack cloud problem, and working through the integration challenges taught me a lot about how distributed systems behave under real conditions.
+
+For another project, I designed and deployed a cloud-native microservices platform on Azure Kubernetes Service from scratch rather than using the provided reference implementation. I containerized each service with Docker, set up CI/CD pipelines through GitHub Actions, and configured Kubernetes resources including StatefulSets and Persistent Volumes to handle state and storage correctly. The hands-on troubleshooting I did throughout that project, especially around deployment and networking between services, gave me a much stronger foundation than I would have gotten from a tutorial path.
+
+I am currently leading a four-person Agile team for my capstone project, coordinating sprint planning, GitHub workflows, and direct client communication for a cloud-based billing system. Working directly with a client has sharpened how I communicate technical constraints and decisions to non-technical stakeholders.
+
+I am genuinely interested in network automation and the move toward cloud-native and AI-driven infrastructure. The problems TELUS is working on, from self-healing systems to zero-touch provisioning to 5G evolution, are the kinds of challenges I want to be building skills around. I would be glad to discuss how my background fits what your team is working on.
+
+Thank you for your time and consideration.
+
+Sincerely,
+Xinyi Zhao

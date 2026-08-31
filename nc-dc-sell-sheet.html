@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PolarGrid – NC Data Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fff;
+    color: #09090B;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page { margin: 0; size: 8.5in 11in; }
+
+  /* ─── TOP BAR ─── */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 52px 18px;
+    border-bottom: 1px solid #F0F0F0;
+    flex-shrink: 0;
+  }
+
+  .wordmark { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+  .wordmark .polar { color: #09090B; }
+  .wordmark .grid  { color: #D31A71; }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #6B7280;
+    font-weight: 500;
+  }
+  .topbar-right .pin { color: #D31A71; font-size: 13px; }
+
+  /* ─── HERO ─── */
+  .hero {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 52px;
+    position: relative;
+    background: #FAFAFA;
+    border-bottom: 1px solid #F0F0F0;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  /* Background grid texture */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(211,26,113,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(211,26,113,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Pink glow centre */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(211,26,113,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #D31A71;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -2.5px;
+    line-height: 1;
+    color: #09090B;
+    margin-bottom: 6px;
+  }
+  .hero h1 em { font-style: normal; color: #D31A71; }
+
+  .hero-sub {
+    font-size: 13px;
+    color: #6B7280;
+    font-weight: 400;
+    margin-bottom: 40px;
+  }
+
+  /* Pod visual */
+  .pod-visual {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pod-card {
+    background: #fff;
+    border: 1px solid #E8E8E8;
+    border-radius: 12px;
+    padding: 24px 36px;
+    text-align: center;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+    min-width: 160px;
+  }
+
+  .pod-card .pod-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #A0A0B0;
+    margin-bottom: 10px;
+  }
+
+  .pod-card .pod-num {
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: #09090B;
+  }
+  .pod-card .pod-num span { color: #D31A71; font-size: 28px; }
+
+  .pod-card .pod-desc {
+    font-size: 11px;
+    color: #6B7280;
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .pod-divider {
+    font-size: 28px;
+    color: #E0E0E0;
+    font-weight: 300;
+  }
+
+  /* Rack illustration — CSS art */
+  .rack-art {
+    display: flex;
+    gap: 5px;
+    align-items: flex-end;
+  }
+
+  .rack-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .rack-unit {
+    width: 28px;
+    height: 8px;
+    background: #09090B;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+  }
+  .rack-unit::after {
+    content: '';
+    position: absolute;
+    left: 4px; top: 2px;
+    width: 4px; height: 4px;
+    background: #D31A71;
+    border-radius: 50%;
+    box-shadow: 8px 0 0 #D31A71, 16px 0 0 rgba(211,26,113,0.4);
+  }
+  .rack-unit.dim { background: #E8E8E8; }
+  .rack-unit.dim::after { background: #ccc; box-shadow: 8px 0 0 #ccc, 16px 0 0 #ccc; }
+
+  .rack-base {
+    width: 34px;
+    height: 5px;
+    background: #333;
+    border-radius: 1px;
+    margin-top: 2px;
+  }
+
+  /* ─── SPECS TABLE ─── */
+  .specs {
+    flex-shrink: 0;
+    padding: 0 52px;
+    background: #fff;
+  }
+
+  .specs table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .specs thead tr {
+    background: #09090B;
+  }
+
+  .specs thead th {
+    padding: 10px 20px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: left;
+  }
+  .specs thead th:last-child { text-align: right; }
+
+  .specs tbody tr {
+    border-bottom: 1px solid #F0F0F0;
+  }
+  .specs tbody tr:last-child { border-bottom: none; }
+  .specs tbody tr:nth-child(even) { background: #FAFAFA; }
+
+  .specs tbody td {
+    padding: 10px 20px;
+    font-size: 11.5px;
+    color: #09090B;
+    vertical-align: middle;
+  }
+  .specs tbody td:first-child {
+    color: #6B7280;
+    font-weight: 500;
+    width: 32%;
+  }
+  .specs tbody td:last-child {
+    font-weight: 700;
+    color: #09090B;
+    text-align: right;
+  }
+
+  .tag {
+    display: inline-block;
+    background: rgba(211,26,113,0.08);
+    color: #D31A71;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    flex-shrink: 0;
+    padding: 12px 52px;
+    background: #09090B;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left { font-size: 9px; color: rgba(255,255,255,0.4); line-height: 1.5; }
+  .footer-left strong { color: rgba(255,255,255,0.8); }
+
+  .footer-right { font-size: 13px; font-weight: 700; color: #D31A71; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="wordmark"><span class="polar">POLAR</span><span class="grid">GRID</span></div>
+  <div class="topbar-right">
+    <span class="pin">📍</span>
+    <span>Graham, North Carolina</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">AI / HPC Capacity Available</div>
+    <h1>North Carolina <em>Data Center</em></h1>
+    <div class="hero-sub">Dedicated bare-metal GPU infrastructure — ready in 8 weeks.</div>
+
+    <div class="pod-visual">
+
+      <!-- Rack art left -->
+      <div class="rack-art">
+        <div class="rack-col">
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit dim"></div>
+          <div class="rack-base"></div>
+        </div>
+        <div class="rack-col">
+          <div class="rack-unit dim"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-base"></div>
+        </div>
+        <div class="rack-col">
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit dim"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-base"></div>
+        </div>
+      </div>
+
+      <!-- Stat card: kW -->
+      <div class="pod-card">
+        <div class="pod-label">Per Pod</div>
+        <div class="pod-num">1.5<span>MW</span></div>
+        <div class="pod-desc">~72 Nodes</div>
+      </div>
+
+      <div class="pod-divider">×</div>
+
+      <!-- Stat card: nodes -->
+      <div class="pod-card">
+        <div class="pod-label">Available Now</div>
+        <div class="pod-num">72</div>
+        <div class="pod-desc">NVIDIA B300-Class Nodes</div>
+      </div>
+
+      <!-- Rack art right -->
+      <div class="rack-art">
+        <div class="rack-col">
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit dim"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-base"></div>
+        </div>
+        <div class="rack-col">
+          <div class="rack-unit"></div>
+          <div class="rack-unit dim"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-base"></div>
+        </div>
+        <div class="rack-col">
+          <div class="rack-unit dim"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit"></div>
+          <div class="rack-unit dim"></div>
+          <div class="rack-base"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- SPECS TABLE -->
+<div class="specs">
+  <table>
+    <thead>
+      <tr>
+        <th>Specification</th>
+        <th>Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Location</td>
+        <td>North Carolina, US</td>
+      </tr>
+      <tr>
+        <td>Available Capacity</td>
+        <td><span class="tag">Up to 72 NVIDIA B300-Class Nodes</span></td>
+      </tr>
+      <tr>
+        <td>Power per Pod</td>
+        <td>1.5 MW (~20.8 kW per node)</td>
+      </tr>
+      <tr>
+        <td>Power Architecture</td>
+        <td>Dedicated Single-Path Distribution</td>
+      </tr>
+      <tr>
+        <td>Cooling</td>
+        <td>Contained Air Cooling with N+1 Capacity</td>
+      </tr>
+      <tr>
+        <td>Network</td>
+        <td>High-Capacity Fiber Connectivity</td>
+      </tr>
+      <tr>
+        <td>SLA</td>
+        <td>99%</td>
+      </tr>
+      <tr>
+        <td>Availability</td>
+        <td>Customer Build-out in 8 Weeks</td>
+      </tr>
+      <tr>
+        <td>Generator Backup</td>
+        <td>Available as a Customer Option</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-left">
+    <strong>PolarGrid Corporation</strong> &nbsp;·&nbsp; North Carolina Data Center<br>
+    For discussion purposes only. All specifications subject to final executed Agreement.
+  </div>
+  <div class="footer-right">polargrid.ai</div>
+</div>
+
+</body>
+</html>
